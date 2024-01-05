@@ -172,6 +172,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sDG-hy-mhs">
+                                <rect key="frame" x="16" y="432" width="361" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="Bag-xJ-XDi"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Ut-6Q-0ZZ"/>
                         <color key="backgroundColor" red="0.30010138529492003" green="0.32323849901268487" blue="0.39264984016597937" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -187,11 +193,14 @@
                             <constraint firstItem="5Ut-6Q-0ZZ" firstAttribute="trailing" secondItem="LHs-XR-eHB" secondAttribute="trailing" constant="16" id="B4Q-mf-cSO"/>
                             <constraint firstItem="3cV-PQ-NOv" firstAttribute="top" secondItem="5Ut-6Q-0ZZ" secondAttribute="top" constant="16" id="BNk-QB-uwR"/>
                             <constraint firstItem="vtF-hZ-i7i" firstAttribute="top" secondItem="DYX-DF-nog" secondAttribute="bottom" id="CMs-Ng-Yvc"/>
+                            <constraint firstItem="5Ut-6Q-0ZZ" firstAttribute="trailing" secondItem="sDG-hy-mhs" secondAttribute="trailing" constant="16" id="ENd-gD-vai"/>
                             <constraint firstItem="5Ut-6Q-0ZZ" firstAttribute="trailing" secondItem="Idb-Hx-2Ye" secondAttribute="trailing" constant="16" id="MbJ-hd-dRk"/>
+                            <constraint firstItem="sDG-hy-mhs" firstAttribute="top" secondItem="Idb-Hx-2Ye" secondAttribute="bottom" constant="16" id="N3r-c3-Cqt"/>
                             <constraint firstItem="Lkh-pw-jQa" firstAttribute="leading" secondItem="5Ut-6Q-0ZZ" secondAttribute="leading" constant="16" id="Nln-0q-8AQ"/>
                             <constraint firstItem="DYX-DF-nog" firstAttribute="top" secondItem="e4b-QD-mWP" secondAttribute="bottom" constant="8" id="PLt-sk-G9x"/>
                             <constraint firstItem="fxk-2r-65M" firstAttribute="top" secondItem="5vX-La-IMS" secondAttribute="bottom" constant="8" id="RWR-DB-QMT"/>
                             <constraint firstItem="H6I-Mr-g30" firstAttribute="top" secondItem="fxk-2r-65M" secondAttribute="bottom" constant="8" id="Srg-Lu-HG0"/>
+                            <constraint firstItem="sDG-hy-mhs" firstAttribute="leading" secondItem="5Ut-6Q-0ZZ" secondAttribute="leading" constant="16" id="Twf-rE-GvP"/>
                             <constraint firstItem="5Ut-6Q-0ZZ" firstAttribute="trailing" secondItem="YLZ-7i-0Tq" secondAttribute="trailing" constant="16" id="UN9-fs-zBU"/>
                             <constraint firstItem="5Ut-6Q-0ZZ" firstAttribute="trailing" secondItem="fxk-2r-65M" secondAttribute="trailing" constant="16" id="W9N-Zz-LUF"/>
                             <constraint firstItem="5Ut-6Q-0ZZ" firstAttribute="trailing" secondItem="DYX-DF-nog" secondAttribute="trailing" constant="16" id="XRg-Ra-BPh"/>
@@ -215,6 +224,7 @@
                     </view>
                     <connections>
                         <outlet property="adultLabel" destination="lwO-dz-gBB" id="r88-wN-bxA"/>
+                        <outlet property="filmImageView" destination="sDG-hy-mhs" id="H8f-3i-HCc"/>
                         <outlet property="genresLabel" destination="fxk-2r-65M" id="h2X-dZ-tKf"/>
                         <outlet property="idLabel" destination="e4b-QD-mWP" id="hgQ-qN-vZh"/>
                         <outlet property="languageLabel" destination="YLZ-7i-0Tq" id="Hzi-TS-Lfp"/>

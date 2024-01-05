@@ -23,6 +23,7 @@ class FilmTapViewController: UIViewController {
     @IBOutlet weak var voteCounteLabel: UILabel!
     @IBOutlet weak var voteAverageLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var filmImageView: UIImageView!
     
     private let scrollView: UIScrollView = {
         let sv = UIScrollView()
@@ -43,8 +44,11 @@ class FilmTapViewController: UIViewController {
         self.scrollView.addSubview(contentView)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
+        contentView.addSubview(posterImageView)
+        contentView.addSubview(filmImageView)
+        
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: self.overviewLabel.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
@@ -55,7 +59,7 @@ class FilmTapViewController: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
             
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 2)
+            contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 1)
         ])
     }
 
@@ -103,6 +107,13 @@ class FilmTapViewController: UIViewController {
         voteCounteLabel.text = "Vote count: " + "\(data.voteCount)"
         voteAverageLabel.text = "Vote average: " + "\(data.voteAverage)"
         overviewLabel.text = data.overview
+        
+        let urlImage = URL(string: basePath + data.backdropPath)
+        if let url = urlImage {
+            downloadImage(from: url, variableName: filmImageView)
+        }
+        
+        setupUI()
     }
     
     func downloadImage(from url: URL, variableName: UIImageView) {
