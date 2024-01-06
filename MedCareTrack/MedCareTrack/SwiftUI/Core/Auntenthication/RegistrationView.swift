@@ -27,7 +27,7 @@ struct RegistrationView: View {
                 InputView(text: $email, title: "Email Address", placeHolder: "name@example.com")
                     .textInputAutocapitalization(.none)
                 
-                InputView(text: $email, title: "Full name", placeHolder: "Enter your name")
+                InputView(text: $fullname, title: "Full name", placeHolder: "Enter your name")
                     .textInputAutocapitalization(.none)
                 
                 InputView(text: $password,
@@ -35,7 +35,7 @@ struct RegistrationView: View {
                           placeHolder: "Enter your password",
                           isSecureField: true)
                 
-                InputView(text: $password,
+                InputView(text: $confirmPassword,
                           title: "Confirm Password",
                           placeHolder: "Enter your password",
                           isSecureField: true)

@@ -11,7 +11,7 @@ struct ProfileView: View {
     var body: some View {
         List {
             Section {
-                Text("MJ")
+                Text(User.MOCK_USER.initials)
                     .font(.title)
                     .fontWeight(.semibold)
                     .foregroundStyle(.white)
@@ -20,11 +20,11 @@ struct ProfileView: View {
                     .clipShape(.circle)
                 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Michael Jordan")
+                    Text(User.MOCK_USER.fullName)
                         .fontWeight(.semibold)
                         .padding(.top, 4)
                     
-                    Text("test@gmail.com")
+                    Text(User.MOCK_USER.email)
                         .font(.footnote)
                         .accentColor(.gray)
                 }
@@ -32,10 +32,31 @@ struct ProfileView: View {
             
             Section("General") {
                 
+                HStack {
+                    SettingsRowView(imageName: "gear", title: "Version", tintColor: Color(.systemGray))
+                    
+                    Spacer()
+                    
+                    Text("1.0.0")
+                        .font(.headline)
+                        .foregroundStyle(.gray)
+                }
+                
+                
             }
             
             Section("Account") {
+                Button(action: {
+                    print("Sign out..")
+                }, label: {
+                    SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sign out", tintColor: .red)
+                })
                 
+                Button(action: {
+                    print("Sign out..")
+                }, label: {
+                    SettingsRowView(imageName: "xmark.circle.fill", title: "Delet account", tintColor: .red)
+                })
             }
         }
     }
