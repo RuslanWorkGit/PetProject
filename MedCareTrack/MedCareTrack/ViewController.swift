@@ -1,18 +1,28 @@
-//
-//  ViewController.swift
-//  MedCareTrack
-//
-//  Created by Ruslan Liulka on 06.01.2024.
-//
 
 import UIKit
 import SwiftUI
+import Firebase
 
 class ViewController: UIViewController {
-
+    @StateObject var viewModel = AuthViewModel()
+    
+    init() {
+            super.init(nibName: nil, bundle: nil) // Call to super.init
+            FirebaseApp.configure()
+        }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        FirebaseApp.configure()
+        // Initialize your viewModel or any other setup needed
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let logInView = LoginView()
+        let logInView = ContentView()
+            .environmentObject(viewModel)
         
         let hostingController = UIHostingController(rootView: logInView)
         addChild(hostingController)
