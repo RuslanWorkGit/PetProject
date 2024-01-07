@@ -49,6 +49,10 @@
 		9B26DCFF2B48BFD400427E94 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26DCFE2B48BFD400427E94 /* InputView.swift */; };
 		9B26DD012B48C55800427E94 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26DD002B48C55800427E94 /* RegistrationView.swift */; };
 		9B26DD032B48C8BB00427E94 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26DD022B48C8BB00427E94 /* ProfileView.swift */; };
+		9B7E9CF82B4A1B98000FE1A9 /* HealthAppContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E9CF72B4A1B98000FE1A9 /* HealthAppContentView.swift */; };
+		9B7E9CFA2B4A1CCE000FE1A9 /* HealthAppContentViewRefactored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E9CF92B4A1CCE000FE1A9 /* HealthAppContentViewRefactored.swift */; };
+		9B7E9CFC2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E9CFB2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift */; };
+		9B7E9CFF2B4A21ED000FE1A9 /* HealthAppNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E9CFE2B4A21ED000FE1A9 /* HealthAppNavigationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +73,10 @@
 		9B26DCFE2B48BFD400427E94 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		9B26DD002B48C55800427E94 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		9B26DD022B48C8BB00427E94 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		9B7E9CF72B4A1B98000FE1A9 /* HealthAppContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthAppContentView.swift; sourceTree = "<group>"; };
+		9B7E9CF92B4A1CCE000FE1A9 /* HealthAppContentViewRefactored.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthAppContentViewRefactored.swift; sourceTree = "<group>"; };
+		9B7E9CFB2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthAppCompleteContentView.swift; sourceTree = "<group>"; };
+		9B7E9CFE2B4A21ED000FE1A9 /* HealthAppNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthAppNavigationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +167,8 @@
 		9B26DCEF2B48BB2300427E94 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				9B7E9CFD2B4A21E3000FE1A9 /* New Group */,
+				9B7E9CF62B4A1B81000FE1A9 /* NewScreen */,
 				9B26DCF62B48BB5400427E94 /* App */,
 				9B26DCF52B48BB5200427E94 /* Components */,
 				9B26DCF42B48BB5100427E94 /* Core */,
@@ -226,6 +236,24 @@
 				9B26DD022B48C8BB00427E94 /* ProfileView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		9B7E9CF62B4A1B81000FE1A9 /* NewScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9B7E9CF72B4A1B98000FE1A9 /* HealthAppContentView.swift */,
+				9B7E9CF92B4A1CCE000FE1A9 /* HealthAppContentViewRefactored.swift */,
+				9B7E9CFB2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift */,
+			);
+			path = NewScreen;
+			sourceTree = "<group>";
+		};
+		9B7E9CFD2B4A21E3000FE1A9 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				9B7E9CFE2B4A21ED000FE1A9 /* HealthAppNavigationView.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,14 +362,18 @@
 			files = (
 				9B26DD032B48C8BB00427E94 /* ProfileView.swift in Sources */,
 				9B26DCE02B48BB1900427E94 /* ViewController.swift in Sources */,
+				9B7E9CFF2B4A21ED000FE1A9 /* HealthAppNavigationView.swift in Sources */,
 				9B26DCDC2B48BB1900427E94 /* AppDelegate.swift in Sources */,
 				9B26DCF92B48BB9A00427E94 /* ContentView.swift in Sources */,
 				9B26DD012B48C55800427E94 /* RegistrationView.swift in Sources */,
+				9B7E9CFC2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift in Sources */,
 				9B26DCFF2B48BFD400427E94 /* InputView.swift in Sources */,
 				9B26DCFD2B48BBEB00427E94 /* LoginView.swift in Sources */,
 				9B2450872B49672600E420EF /* AuthViewModel.swift in Sources */,
 				9B26DCDE2B48BB1900427E94 /* SceneDelegate.swift in Sources */,
 				9B24504A2B49611F00E420EF /* User.swift in Sources */,
+				9B7E9CF82B4A1B98000FE1A9 /* HealthAppContentView.swift in Sources */,
+				9B7E9CFA2B4A1CCE000FE1A9 /* HealthAppContentViewRefactored.swift in Sources */,
 				9B2450482B495EBA00E420EF /* SettingsRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

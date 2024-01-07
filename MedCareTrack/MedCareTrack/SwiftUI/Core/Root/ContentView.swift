@@ -12,7 +12,9 @@ struct ContentView: View {
     var body: some View {
         Group {
             if viewModel.userSession != nil {
-                ProfileView()
+                //ProfileView()
+                //MainScreenMenu()
+                HomeScreenMenu()
             } else {
                 LoginView()
             }
