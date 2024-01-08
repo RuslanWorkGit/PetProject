@@ -49,10 +49,15 @@
 		9B26DCFF2B48BFD400427E94 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26DCFE2B48BFD400427E94 /* InputView.swift */; };
 		9B26DD012B48C55800427E94 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26DD002B48C55800427E94 /* RegistrationView.swift */; };
 		9B26DD032B48C8BB00427E94 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26DD022B48C8BB00427E94 /* ProfileView.swift */; };
-		9B7E9CF82B4A1B98000FE1A9 /* HealthAppContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E9CF72B4A1B98000FE1A9 /* HealthAppContentView.swift */; };
-		9B7E9CFA2B4A1CCE000FE1A9 /* HealthAppContentViewRefactored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E9CF92B4A1CCE000FE1A9 /* HealthAppContentViewRefactored.swift */; };
 		9B7E9CFC2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E9CFB2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift */; };
-		9B7E9CFF2B4A21ED000FE1A9 /* HealthAppNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E9CFE2B4A21ED000FE1A9 /* HealthAppNavigationView.swift */; };
+		9BC8BC892B4B24EC00A2A2B8 /* DoctorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8BC882B4B24EC00A2A2B8 /* DoctorsView.swift */; };
+		9BC8BC8D2B4B32C900A2A2B8 /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8BC8C2B4B32C900A2A2B8 /* HealthKitSetupAssistant.swift */; };
+		9BC8BC8F2B4B32F700A2A2B8 /* HealthDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8BC8E2B4B32F700A2A2B8 /* HealthDataStore.swift */; };
+		9BC8BC912B4B337A00A2A2B8 /* WatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8BC902B4B337A00A2A2B8 /* WatchData.swift */; };
+		9BC8BC972B4B412800A2A2B8 /* HealthMetricsViewWithMoreMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8BC962B4B412800A2A2B8 /* HealthMetricsViewWithMoreMetrics.swift */; };
+		9BC8BC992B4B4DA900A2A2B8 /* FunctionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8BC982B4B4DA900A2A2B8 /* FunctionalView.swift */; };
+		9BC8BC9B2B4B590E00A2A2B8 /* ReminderPills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8BC9A2B4B590E00A2A2B8 /* ReminderPills.swift */; };
+		9BC8BCA12B4B70A000A2A2B8 /* ReminderPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8BCA02B4B70A000A2A2B8 /* ReminderPill.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,10 +78,15 @@
 		9B26DCFE2B48BFD400427E94 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		9B26DD002B48C55800427E94 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		9B26DD022B48C8BB00427E94 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		9B7E9CF72B4A1B98000FE1A9 /* HealthAppContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthAppContentView.swift; sourceTree = "<group>"; };
-		9B7E9CF92B4A1CCE000FE1A9 /* HealthAppContentViewRefactored.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthAppContentViewRefactored.swift; sourceTree = "<group>"; };
 		9B7E9CFB2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthAppCompleteContentView.swift; sourceTree = "<group>"; };
-		9B7E9CFE2B4A21ED000FE1A9 /* HealthAppNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthAppNavigationView.swift; sourceTree = "<group>"; };
+		9BC8BC882B4B24EC00A2A2B8 /* DoctorsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorsView.swift; sourceTree = "<group>"; };
+		9BC8BC8C2B4B32C900A2A2B8 /* HealthKitSetupAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetupAssistant.swift; sourceTree = "<group>"; };
+		9BC8BC8E2B4B32F700A2A2B8 /* HealthDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataStore.swift; sourceTree = "<group>"; };
+		9BC8BC902B4B337A00A2A2B8 /* WatchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchData.swift; sourceTree = "<group>"; };
+		9BC8BC962B4B412800A2A2B8 /* HealthMetricsViewWithMoreMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthMetricsViewWithMoreMetrics.swift; sourceTree = "<group>"; };
+		9BC8BC982B4B4DA900A2A2B8 /* FunctionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalView.swift; sourceTree = "<group>"; };
+		9BC8BC9A2B4B590E00A2A2B8 /* ReminderPills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPills.swift; sourceTree = "<group>"; };
+		9BC8BCA02B4B70A000A2A2B8 /* ReminderPill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReminderPill.swift; path = ../../../../../Downloads/ReminderPill.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +161,9 @@
 		9B26DCDA2B48BB1900427E94 /* MedCareTrack */ = {
 			isa = PBXGroup;
 			children = (
+				9BC8BC872B4B24A800A2A2B8 /* Controller */,
+				9BC8BC862B4B24A200A2A2B8 /* View */,
+				9BC8BC852B4B249C00A2A2B8 /* Model */,
 				9B26DCEF2B48BB2300427E94 /* SwiftUI */,
 				9B26DCDB2B48BB1900427E94 /* AppDelegate.swift */,
 				9B26DCDD2B48BB1900427E94 /* SceneDelegate.swift */,
@@ -167,7 +180,6 @@
 		9B26DCEF2B48BB2300427E94 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				9B7E9CFD2B4A21E3000FE1A9 /* New Group */,
 				9B7E9CF62B4A1B81000FE1A9 /* NewScreen */,
 				9B26DCF62B48BB5400427E94 /* App */,
 				9B26DCF52B48BB5200427E94 /* Components */,
@@ -241,19 +253,38 @@
 		9B7E9CF62B4A1B81000FE1A9 /* NewScreen */ = {
 			isa = PBXGroup;
 			children = (
-				9B7E9CF72B4A1B98000FE1A9 /* HealthAppContentView.swift */,
-				9B7E9CF92B4A1CCE000FE1A9 /* HealthAppContentViewRefactored.swift */,
 				9B7E9CFB2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift */,
 			);
 			path = NewScreen;
 			sourceTree = "<group>";
 		};
-		9B7E9CFD2B4A21E3000FE1A9 /* New Group */ = {
+		9BC8BC852B4B249C00A2A2B8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9B7E9CFE2B4A21ED000FE1A9 /* HealthAppNavigationView.swift */,
+				9BC8BC8E2B4B32F700A2A2B8 /* HealthDataStore.swift */,
 			);
-			path = "New Group";
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9BC8BC862B4B24A200A2A2B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9BC8BC882B4B24EC00A2A2B8 /* DoctorsView.swift */,
+				9BC8BC902B4B337A00A2A2B8 /* WatchData.swift */,
+				9BC8BC962B4B412800A2A2B8 /* HealthMetricsViewWithMoreMetrics.swift */,
+				9BC8BC982B4B4DA900A2A2B8 /* FunctionalView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9BC8BC872B4B24A800A2A2B8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9BC8BC8C2B4B32C900A2A2B8 /* HealthKitSetupAssistant.swift */,
+				9BC8BC9A2B4B590E00A2A2B8 /* ReminderPills.swift */,
+				9BC8BCA02B4B70A000A2A2B8 /* ReminderPill.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,20 +391,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BC8BCA12B4B70A000A2A2B8 /* ReminderPill.swift in Sources */,
+				9BC8BC892B4B24EC00A2A2B8 /* DoctorsView.swift in Sources */,
+				9BC8BC992B4B4DA900A2A2B8 /* FunctionalView.swift in Sources */,
 				9B26DD032B48C8BB00427E94 /* ProfileView.swift in Sources */,
 				9B26DCE02B48BB1900427E94 /* ViewController.swift in Sources */,
-				9B7E9CFF2B4A21ED000FE1A9 /* HealthAppNavigationView.swift in Sources */,
 				9B26DCDC2B48BB1900427E94 /* AppDelegate.swift in Sources */,
 				9B26DCF92B48BB9A00427E94 /* ContentView.swift in Sources */,
+				9BC8BC8D2B4B32C900A2A2B8 /* HealthKitSetupAssistant.swift in Sources */,
 				9B26DD012B48C55800427E94 /* RegistrationView.swift in Sources */,
+				9BC8BC972B4B412800A2A2B8 /* HealthMetricsViewWithMoreMetrics.swift in Sources */,
 				9B7E9CFC2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift in Sources */,
 				9B26DCFF2B48BFD400427E94 /* InputView.swift in Sources */,
 				9B26DCFD2B48BBEB00427E94 /* LoginView.swift in Sources */,
 				9B2450872B49672600E420EF /* AuthViewModel.swift in Sources */,
+				9BC8BC912B4B337A00A2A2B8 /* WatchData.swift in Sources */,
 				9B26DCDE2B48BB1900427E94 /* SceneDelegate.swift in Sources */,
+				9BC8BC8F2B4B32F700A2A2B8 /* HealthDataStore.swift in Sources */,
+				9BC8BC9B2B4B590E00A2A2B8 /* ReminderPills.swift in Sources */,
 				9B24504A2B49611F00E420EF /* User.swift in Sources */,
-				9B7E9CF82B4A1B98000FE1A9 /* HealthAppContentView.swift in Sources */,
-				9B7E9CFA2B4A1CCE000FE1A9 /* HealthAppContentViewRefactored.swift in Sources */,
 				9B2450482B495EBA00E420EF /* SettingsRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

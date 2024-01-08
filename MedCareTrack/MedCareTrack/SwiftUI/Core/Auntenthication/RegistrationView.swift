@@ -1,5 +1,3 @@
-
-
 import SwiftUI
 
 struct RegistrationView: View {
@@ -9,6 +7,8 @@ struct RegistrationView: View {
     @State private var confirmPassword = ""
     @Environment(\.dismiss) var dissmis
     @EnvironmentObject var viewModel: AuthViewModel
+
+    @State private var showingAlert = false // Додано станову змінну для сповіщення
 
     var body: some View {
         VStack {
@@ -37,7 +37,7 @@ struct RegistrationView: View {
                               placeHolder: "Enter your password",
                               isSecureField: true)
                     
-                    if !password.isEmpty && !confirmPassword.isEmpty { // check the password
+                    if !password.isEmpty && !confirmPassword.isEmpty {
                         if password == confirmPassword {
                             Image(systemName: "checkmark.circle.fill")
                                 .imageScale(.large)
@@ -57,14 +57,18 @@ struct RegistrationView: View {
             .padding(.top, 12)
             
             Button(action: {
-                Task {
-                    try await viewModel.createUser(withEmail: email,
-                                                   password: password,
-                                                   fullName: fullname)
+                if password != confirmPassword {
+                    showingAlert = true // Встановлення значення для показу сповіщення
+                } else {
+                    Task {
+                        try await viewModel.createUser(withEmail: email,
+                                                       password: password,
+                                                       fullName: fullname)
+                    }
                 }
             }, label: {
                 HStack {
-                    Text("SING UP")
+                    Text("SIGN UP")
                         .fontWeight(.semibold)
                     Image(systemName: "arrow.right")
                 }
@@ -76,7 +80,13 @@ struct RegistrationView: View {
             .opacity(formIsValid ? 1.0 : 0.5)
             .cornerRadius(10)
             .padding(.top, 24)
-            
+            .alert(isPresented: $showingAlert) { // Додано модифікатор alert
+                Alert(
+                    title: Text("Error"),
+                    message: Text("Passwords do not match. Please try again."),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
             
             Spacer()
             
@@ -85,7 +95,7 @@ struct RegistrationView: View {
             }, label: {
                 HStack(spacing: 3){
                     Text("Already have an account?")
-                    Text("Sing up")
+                    Text("Sign up")
                         .fontWeight(.bold)
                 }
                 .font(.system(size: 14))
@@ -93,9 +103,10 @@ struct RegistrationView: View {
             
         }
     }
-}
 
-//MARK: - AuthenticationFormProtocol
+    //MARK: - AuthenticationFormProtocol
+
+}
 
 extension RegistrationView: AuthenticationFormProtocol {
     var formIsValid: Bool {

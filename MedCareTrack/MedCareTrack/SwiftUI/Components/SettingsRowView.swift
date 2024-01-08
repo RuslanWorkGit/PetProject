@@ -15,7 +15,7 @@ struct SettingsRowView: View {
     var body: some View {
         HStack(spacing: 12) {
             Image(systemName: imageName)
-                .imageScale(.small)
+                .imageScale(.large)
                 .font(.title)
                 .foregroundStyle(tintColor)
             

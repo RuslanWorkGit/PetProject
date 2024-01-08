@@ -9,22 +9,22 @@ struct HomeScreenMenu: View {
                     Label("Home", systemImage: "house")
                 }
             
-            Text("Doctors View")
+            DoctorsView()
                 .tabItem {
                     Label("Doctors", systemImage: "stethoscope")
                 }
             
-            Text("Cabinet View")
+            MainMetricView()
                 .tabItem {
-                    Label("Cabinet", systemImage: "briefcase")
+                    Label("Watch", systemImage: "applewatch")
                 }
             
-            Text("Chat View")
+            FunctionalView()
                 .tabItem {
-                    Label("Chat", systemImage: "message")
+                    Label("Functional", systemImage: "message")
                 }
             
-            Text("Profile View")
+            ProfileView()
                 .tabItem {
                     Label("Profile", systemImage: "person.crop.circle")
                 }
@@ -46,6 +46,7 @@ struct MainView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 100)
+                                .clipShape(.circle)
                                 
                             VStack(alignment: .leading) {
                                 Text("Kyiv, Ukraine")

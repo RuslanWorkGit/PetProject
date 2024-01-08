@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    @StateObject var authViewModel = AuthViewModel()
+    
     var body: some View {
         Group {
             if viewModel.userSession != nil {
@@ -18,6 +20,7 @@ struct ContentView: View {
             } else {
                 LoginView()
             }
+            
         }
     }
 }
