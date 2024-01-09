@@ -44,6 +44,10 @@ struct ProfileView: View {
                             .foregroundStyle(.gray)
                     }
                     
+                    SettingsRowView(imageName: "applewatch", title: "Add New Device", tintColor: Color(.systemGray))
+                    
+                    SettingsRowView(imageName: "gearshape", title: "Setting", tintColor: Color(.systemGray))
+                    
                     
                 }
                 

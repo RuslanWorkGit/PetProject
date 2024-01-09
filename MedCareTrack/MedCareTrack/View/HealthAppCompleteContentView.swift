@@ -65,21 +65,29 @@ struct MainView: View {
                         Group {
                             Text("Select search type")
                                 .font(.headline)
-                            Menu("For doctor speciality") {
-                                Button("Option 1", action: {})
-                                Button("Option 2", action: {})
+                            Menu("Doctor specialist") {
+                                Button("Therapist", action: {})
+                                Button("Dentist", action: {})
+                                Button("Eye specialist", action: {})
+                                Button("Surgeon", action: {})
+                                Button("Ophthalmologist", action: {})
                                 // Add more buttons for options
                             }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(Color.white)
                             .padding()
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color.gray, lineWidth: 1)
                             )
                             
+                            Text("Specialist you search")
+                                .font(.headline)
                             HStack {
-                                TextField("What searching?", text: .constant(""))
+                                TextField("ex. Dentist", text: .constant(""))
                                 Image(systemName: "magnifyingglass")
                             }
+                            
                             .padding()
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)

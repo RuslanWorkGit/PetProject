@@ -34,5 +34,4 @@ class HealthDataStore: ObservableObject {
         healthStore?.execute(query)
     }
     
-    // Додайте додаткові функції для читання інших типів даних...
 }

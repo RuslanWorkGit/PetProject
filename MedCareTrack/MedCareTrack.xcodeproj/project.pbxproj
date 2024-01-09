@@ -50,13 +50,14 @@
 		9B26DD012B48C55800427E94 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26DD002B48C55800427E94 /* RegistrationView.swift */; };
 		9B26DD032B48C8BB00427E94 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26DD022B48C8BB00427E94 /* ProfileView.swift */; };
 		9B7E9CFC2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E9CFB2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift */; };
+		9BA865432B4CBD4600D110B4 /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA865422B4CBD4600D110B4 /* LoginViewTests.swift */; };
+		9BA865452B4CBD7700D110B4 /* RegistrationViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA865442B4CBD7700D110B4 /* RegistrationViewTests.swift */; };
 		9BC8BC892B4B24EC00A2A2B8 /* DoctorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8BC882B4B24EC00A2A2B8 /* DoctorsView.swift */; };
 		9BC8BC8D2B4B32C900A2A2B8 /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8BC8C2B4B32C900A2A2B8 /* HealthKitSetupAssistant.swift */; };
 		9BC8BC8F2B4B32F700A2A2B8 /* HealthDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8BC8E2B4B32F700A2A2B8 /* HealthDataStore.swift */; };
 		9BC8BC912B4B337A00A2A2B8 /* WatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8BC902B4B337A00A2A2B8 /* WatchData.swift */; };
 		9BC8BC972B4B412800A2A2B8 /* HealthMetricsViewWithMoreMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8BC962B4B412800A2A2B8 /* HealthMetricsViewWithMoreMetrics.swift */; };
 		9BC8BC992B4B4DA900A2A2B8 /* FunctionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8BC982B4B4DA900A2A2B8 /* FunctionalView.swift */; };
-		9BC8BC9B2B4B590E00A2A2B8 /* ReminderPills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8BC9A2B4B590E00A2A2B8 /* ReminderPills.swift */; };
 		9BC8BCA12B4B70A000A2A2B8 /* ReminderPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8BCA02B4B70A000A2A2B8 /* ReminderPill.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,13 +80,14 @@
 		9B26DD002B48C55800427E94 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		9B26DD022B48C8BB00427E94 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		9B7E9CFB2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthAppCompleteContentView.swift; sourceTree = "<group>"; };
+		9BA865422B4CBD4600D110B4 /* LoginViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTests.swift; sourceTree = "<group>"; };
+		9BA865442B4CBD7700D110B4 /* RegistrationViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewTests.swift; sourceTree = "<group>"; };
 		9BC8BC882B4B24EC00A2A2B8 /* DoctorsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorsView.swift; sourceTree = "<group>"; };
 		9BC8BC8C2B4B32C900A2A2B8 /* HealthKitSetupAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetupAssistant.swift; sourceTree = "<group>"; };
 		9BC8BC8E2B4B32F700A2A2B8 /* HealthDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataStore.swift; sourceTree = "<group>"; };
 		9BC8BC902B4B337A00A2A2B8 /* WatchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchData.swift; sourceTree = "<group>"; };
 		9BC8BC962B4B412800A2A2B8 /* HealthMetricsViewWithMoreMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthMetricsViewWithMoreMetrics.swift; sourceTree = "<group>"; };
 		9BC8BC982B4B4DA900A2A2B8 /* FunctionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalView.swift; sourceTree = "<group>"; };
-		9BC8BC9A2B4B590E00A2A2B8 /* ReminderPills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPills.swift; sourceTree = "<group>"; };
 		9BC8BCA02B4B70A000A2A2B8 /* ReminderPill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReminderPill.swift; path = ../../../../../Downloads/ReminderPill.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,8 @@
 		9B2450842B49670000E420EF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9B26DCFC2B48BBEB00427E94 /* LoginView.swift */,
+				9B26DD002B48C55800427E94 /* RegistrationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,10 +165,10 @@
 		9B26DCDA2B48BB1900427E94 /* MedCareTrack */ = {
 			isa = PBXGroup;
 			children = (
+				9BA8653F2B4CB5D400D110B4 /* Test */,
 				9BC8BC872B4B24A800A2A2B8 /* Controller */,
 				9BC8BC862B4B24A200A2A2B8 /* View */,
 				9BC8BC852B4B249C00A2A2B8 /* Model */,
-				9B26DCEF2B48BB2300427E94 /* SwiftUI */,
 				9B26DCDB2B48BB1900427E94 /* AppDelegate.swift */,
 				9B26DCDD2B48BB1900427E94 /* SceneDelegate.swift */,
 				9B26DCDF2B48BB1900427E94 /* ViewController.swift */,
@@ -177,36 +181,6 @@
 			path = MedCareTrack;
 			sourceTree = "<group>";
 		};
-		9B26DCEF2B48BB2300427E94 /* SwiftUI */ = {
-			isa = PBXGroup;
-			children = (
-				9B7E9CF62B4A1B81000FE1A9 /* NewScreen */,
-				9B26DCF62B48BB5400427E94 /* App */,
-				9B26DCF52B48BB5200427E94 /* Components */,
-				9B26DCF42B48BB5100427E94 /* Core */,
-				9B26DCF12B48BB4600427E94 /* Model */,
-			);
-			path = SwiftUI;
-			sourceTree = "<group>";
-		};
-		9B26DCF12B48BB4600427E94 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				9B2450492B49611F00E420EF /* User.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		9B26DCF42B48BB5100427E94 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				9B26DCFA2B48BBB100427E94 /* Auntenthication */,
-				9B26DCFB2B48BBC200427E94 /* Profile */,
-				9B26DCF72B48BB8200427E94 /* Root */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
 		9B26DCF52B48BB5200427E94 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,13 +188,6 @@
 				9B2450472B495EBA00E420EF /* SettingsRowView.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		9B26DCF62B48BB5400427E94 /* App */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = App;
 			sourceTree = "<group>";
 		};
 		9B26DCF72B48BB8200427E94 /* Root */ = {
@@ -231,17 +198,6 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
-		9B26DCFA2B48BBB100427E94 /* Auntenthication */ = {
-			isa = PBXGroup;
-			children = (
-				9B2450842B49670000E420EF /* View */,
-				9B2450852B49670700E420EF /* ViewModel */,
-				9B26DCFC2B48BBEB00427E94 /* LoginView.swift */,
-				9B26DD002B48C55800427E94 /* RegistrationView.swift */,
-			);
-			path = Auntenthication;
-			sourceTree = "<group>";
-		};
 		9B26DCFB2B48BBC200427E94 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,18 +206,31 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		9B7E9CF62B4A1B81000FE1A9 /* NewScreen */ = {
+		9BA8653E2B4C4F2F00D110B4 /* Auntenthication */ = {
 			isa = PBXGroup;
 			children = (
-				9B7E9CFB2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift */,
+				9B2450852B49670700E420EF /* ViewModel */,
+				9B2450842B49670000E420EF /* View */,
+				9B26DCFB2B48BBC200427E94 /* Profile */,
 			);
-			path = NewScreen;
+			path = Auntenthication;
+			sourceTree = "<group>";
+		};
+		9BA8653F2B4CB5D400D110B4 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				9BA865422B4CBD4600D110B4 /* LoginViewTests.swift */,
+				9BA865442B4CBD7700D110B4 /* RegistrationViewTests.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 		9BC8BC852B4B249C00A2A2B8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9B26DCF52B48BB5200427E94 /* Components */,
 				9BC8BC8E2B4B32F700A2A2B8 /* HealthDataStore.swift */,
+				9B2450492B49611F00E420EF /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -269,6 +238,8 @@
 		9BC8BC862B4B24A200A2A2B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9B7E9CFB2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift */,
+				9BA8653E2B4C4F2F00D110B4 /* Auntenthication */,
 				9BC8BC882B4B24EC00A2A2B8 /* DoctorsView.swift */,
 				9BC8BC902B4B337A00A2A2B8 /* WatchData.swift */,
 				9BC8BC962B4B412800A2A2B8 /* HealthMetricsViewWithMoreMetrics.swift */,
@@ -280,8 +251,8 @@
 		9BC8BC872B4B24A800A2A2B8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9B26DCF72B48BB8200427E94 /* Root */,
 				9BC8BC8C2B4B32C900A2A2B8 /* HealthKitSetupAssistant.swift */,
-				9BC8BC9A2B4B590E00A2A2B8 /* ReminderPills.swift */,
 				9BC8BCA02B4B70A000A2A2B8 /* ReminderPill.swift */,
 			);
 			path = Controller;
@@ -394,9 +365,11 @@
 				9BC8BCA12B4B70A000A2A2B8 /* ReminderPill.swift in Sources */,
 				9BC8BC892B4B24EC00A2A2B8 /* DoctorsView.swift in Sources */,
 				9BC8BC992B4B4DA900A2A2B8 /* FunctionalView.swift in Sources */,
+				9BA865452B4CBD7700D110B4 /* RegistrationViewTests.swift in Sources */,
 				9B26DD032B48C8BB00427E94 /* ProfileView.swift in Sources */,
 				9B26DCE02B48BB1900427E94 /* ViewController.swift in Sources */,
 				9B26DCDC2B48BB1900427E94 /* AppDelegate.swift in Sources */,
+				9BA865432B4CBD4600D110B4 /* LoginViewTests.swift in Sources */,
 				9B26DCF92B48BB9A00427E94 /* ContentView.swift in Sources */,
 				9BC8BC8D2B4B32C900A2A2B8 /* HealthKitSetupAssistant.swift in Sources */,
 				9B26DD012B48C55800427E94 /* RegistrationView.swift in Sources */,
@@ -408,7 +381,6 @@
 				9BC8BC912B4B337A00A2A2B8 /* WatchData.swift in Sources */,
 				9B26DCDE2B48BB1900427E94 /* SceneDelegate.swift in Sources */,
 				9BC8BC8F2B4B32F700A2A2B8 /* HealthDataStore.swift in Sources */,
-				9BC8BC9B2B4B590E00A2A2B8 /* ReminderPills.swift in Sources */,
 				9B24504A2B49611F00E420EF /* User.swift in Sources */,
 				9B2450482B495EBA00E420EF /* SettingsRowView.swift in Sources */,
 			);
