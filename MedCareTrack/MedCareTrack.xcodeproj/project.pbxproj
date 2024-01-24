@@ -49,6 +49,8 @@
 		9B26DCFF2B48BFD400427E94 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26DCFE2B48BFD400427E94 /* InputView.swift */; };
 		9B26DD012B48C55800427E94 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26DD002B48C55800427E94 /* RegistrationView.swift */; };
 		9B26DD032B48C8BB00427E94 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26DD022B48C8BB00427E94 /* ProfileView.swift */; };
+		9B2B81F02B52C75B00969D7E /* ReminderPillTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2B81EF2B52C75B00969D7E /* ReminderPillTest.swift */; };
+		9B2B81F22B52C78600969D7E /* LogOutTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2B81F12B52C78600969D7E /* LogOutTest.swift */; };
 		9B7E9CFC2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7E9CFB2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift */; };
 		9BA865432B4CBD4600D110B4 /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA865422B4CBD4600D110B4 /* LoginViewTests.swift */; };
 		9BA865452B4CBD7700D110B4 /* RegistrationViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA865442B4CBD7700D110B4 /* RegistrationViewTests.swift */; };
@@ -79,6 +81,8 @@
 		9B26DCFE2B48BFD400427E94 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		9B26DD002B48C55800427E94 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		9B26DD022B48C8BB00427E94 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		9B2B81EF2B52C75B00969D7E /* ReminderPillTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPillTest.swift; sourceTree = "<group>"; };
+		9B2B81F12B52C78600969D7E /* LogOutTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutTest.swift; sourceTree = "<group>"; };
 		9B7E9CFB2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthAppCompleteContentView.swift; sourceTree = "<group>"; };
 		9BA865422B4CBD4600D110B4 /* LoginViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTests.swift; sourceTree = "<group>"; };
 		9BA865442B4CBD7700D110B4 /* RegistrationViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewTests.swift; sourceTree = "<group>"; };
@@ -221,6 +225,8 @@
 			children = (
 				9BA865422B4CBD4600D110B4 /* LoginViewTests.swift */,
 				9BA865442B4CBD7700D110B4 /* RegistrationViewTests.swift */,
+				9B2B81EF2B52C75B00969D7E /* ReminderPillTest.swift */,
+				9B2B81F12B52C78600969D7E /* LogOutTest.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -362,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B2B81F22B52C78600969D7E /* LogOutTest.swift in Sources */,
 				9BC8BCA12B4B70A000A2A2B8 /* ReminderPill.swift in Sources */,
 				9BC8BC892B4B24EC00A2A2B8 /* DoctorsView.swift in Sources */,
 				9BC8BC992B4B4DA900A2A2B8 /* FunctionalView.swift in Sources */,
@@ -374,6 +381,7 @@
 				9BC8BC8D2B4B32C900A2A2B8 /* HealthKitSetupAssistant.swift in Sources */,
 				9B26DD012B48C55800427E94 /* RegistrationView.swift in Sources */,
 				9BC8BC972B4B412800A2A2B8 /* HealthMetricsViewWithMoreMetrics.swift in Sources */,
+				9B2B81F02B52C75B00969D7E /* ReminderPillTest.swift in Sources */,
 				9B7E9CFC2B4A207E000FE1A9 /* HealthAppCompleteContentView.swift in Sources */,
 				9B26DCFF2B48BFD400427E94 /* InputView.swift in Sources */,
 				9B26DCFD2B48BBEB00427E94 /* LoginView.swift in Sources */,

@@ -47,6 +47,7 @@ struct ProfileView: View {
                     SettingsRowView(imageName: "applewatch", title: "Add New Device", tintColor: Color(.systemGray))
                     
                     SettingsRowView(imageName: "gearshape", title: "Setting", tintColor: Color(.systemGray))
+                    SettingsRowView(imageName: "eye.trianglebadge.exclamationmark.fill", title: "Adittional Setting", tintColor: Color(.red))
                     
                     
                 }
