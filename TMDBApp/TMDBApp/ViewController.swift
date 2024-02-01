@@ -94,9 +94,6 @@ class ViewController: UIViewController {
             }
         }
     }
-
-    
-    
 }
 
 extension ViewController: UITableViewDataSource {
@@ -107,8 +104,6 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell") as! MovieTableViewCell
         cell.configure(with: arrayOfMovieRealm[indexPath.row])
-//        let currentMovie = arrayOfMovieRealm[indexPath.row]
-//        cell.textLabel?.text = currentMovie.title
         return cell
         
     }
