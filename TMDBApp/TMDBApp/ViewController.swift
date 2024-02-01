@@ -1,5 +1,3 @@
-
-
 import UIKit
 import Alamofire
 import RealmSwift
@@ -7,10 +5,9 @@ import RealmSwift
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var arrayOfMovie: [Movie] = []
-    
+
+    var currentPage = 1
     var arrayOfMovieRealm: Results<MovieRealm>!
-    
     private let realm = try! Realm()
     
     override func viewDidLoad() {
@@ -22,8 +19,7 @@ class ViewController: UIViewController {
             switch responce.result {
             case .success(let listOfMovie):
                 print(listOfMovie.results.count)
-                self.arrayOfMovie = listOfMovie.results
-                self.saveData(medias: self.arrayOfMovie)
+                self.saveData(medias: listOfMovie.results)
                 self.arrayOfMovieRealm = self.realm.objects(MovieRealm.self)
                 
                 self.tableView.reloadData()
@@ -68,12 +64,34 @@ class ViewController: UIViewController {
                 movieRealm.voteAverage = media.voteAverage
                 movieRealm.voteCount = media.voteCount
                 
-                realm.add(movieRealm)
+                realm.add(movieRealm, update: .all)
             }
         })
         
         tableView.reloadData()
     }
+    
+    private func loadNextPage() {
+        currentPage += 1
+        fetchDataForPage(currentPage)
+    }
+    
+    private func fetchDataForPage(_ page: Int) {
+        let url = "https://api.themoviedb.org/3/trending/movie/week?language=en-US&api_key=bcfdb7391902da79ee3c28ea459c4d04&page=\(page)"
+
+        AF.request(url).responseDecodable(of: TrendingModels.self) { response in
+            switch response.result {
+            case .success(let listOfMovie):
+                self.saveData(medias: listOfMovie.results)
+                self.arrayOfMovieRealm = self.realm.objects(MovieRealm.self)
+                self.tableView.reloadData()
+
+            case .failure(let error):
+                print("Error \(error)")
+            }
+        }
+    }
+
     
     
 }
@@ -90,7 +108,17 @@ extension ViewController: UITableViewDataSource {
         return cell
         
     }
-    
-    
+}
+
+extension ViewController: UITableViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offset = scrollView.contentOffset.y
+        let contentHeight  = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offset >= contentHeight - height {
+            loadNextPage()
+        }
+    }
 }
 

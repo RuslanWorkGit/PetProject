@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class MovieRealm: Object {
-    @Persisted var id: Int
+    @Persisted(primaryKey: true) var id: Int
     @Persisted var adult: Bool
     @Persisted var backdropPath: String
     @Persisted var title: String
