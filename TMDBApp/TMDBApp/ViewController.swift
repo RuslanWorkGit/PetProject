@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let nib = UINib(nibName: "MovieTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "MovieTableViewCell")
+        
         let url = "https://api.themoviedb.org/3/trending/movie/week?language=en-US&api_key=bcfdb7391902da79ee3c28ea459c4d04"
         
         AF.request(url).responseDecodable(of: TrendingModels.self) { responce in
@@ -102,9 +105,10 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
-        let currentMovie = arrayOfMovieRealm[indexPath.row]
-        cell.textLabel?.text = currentMovie.title
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell") as! MovieTableViewCell
+        cell.configure(with: arrayOfMovieRealm[indexPath.row])
+//        let currentMovie = arrayOfMovieRealm[indexPath.row]
+//        cell.textLabel?.text = currentMovie.title
         return cell
         
     }

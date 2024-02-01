@@ -18,6 +18,8 @@
 		9B4194C42B6A5A100062D60B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9B4194C32B6A5A100062D60B /* RealmSwift */; };
 		9B4194C92B6A5F930062D60B /* TrendingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4194C82B6A5F930062D60B /* TrendingModels.swift */; };
 		9B4194CC2B6B93CE0062D60B /* MovieRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4194CB2B6B93CE0062D60B /* MovieRealm.swift */; };
+		9B4194CF2B6C16550062D60B /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4194CD2B6C16550062D60B /* MovieTableViewCell.swift */; };
+		9B4194D02B6C16550062D60B /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4194CE2B6C16550062D60B /* MovieTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		9B4194B72B6A58C80062D60B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B4194C82B6A5F930062D60B /* TrendingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingModels.swift; sourceTree = "<group>"; };
 		9B4194CB2B6B93CE0062D60B /* MovieRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRealm.swift; sourceTree = "<group>"; };
+		9B4194CD2B6C16550062D60B /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		9B4194CE2B6C16550062D60B /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,8 @@
 		9B4194CA2B6A635B0062D60B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				9B4194CD2B6C16550062D60B /* MovieTableViewCell.swift */,
+				9B4194CE2B6C16550062D60B /* MovieTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -164,6 +170,7 @@
 			files = (
 				9B4194B62B6A58C80062D60B /* LaunchScreen.storyboard in Resources */,
 				9B4194B32B6A58C80062D60B /* Assets.xcassets in Resources */,
+				9B4194D02B6C16550062D60B /* MovieTableViewCell.xib in Resources */,
 				9B4194B12B6A58BA0062D60B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +184,7 @@
 			files = (
 				9B4194AE2B6A58BA0062D60B /* ViewController.swift in Sources */,
 				9B4194CC2B6B93CE0062D60B /* MovieRealm.swift in Sources */,
+				9B4194CF2B6C16550062D60B /* MovieTableViewCell.swift in Sources */,
 				9B4194AA2B6A58BA0062D60B /* AppDelegate.swift in Sources */,
 				9B4194C92B6A5F930062D60B /* TrendingModels.swift in Sources */,
 				9B4194AC2B6A58BA0062D60B /* SceneDelegate.swift in Sources */,
