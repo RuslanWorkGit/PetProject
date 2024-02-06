@@ -1,13 +1,14 @@
 //
 //  AppDelegate.swift
-//  MovieTMDB
+//  MyTMDBapp
 //
-//  Created by Ruslan Liulka on 02.02.2024.
+//  Created by Ruslan Liulka on 06.02.2024.
 //
 
 import UIKit
 
-@main class AppDelegate: UIResponder, UIApplicationDelegate {
+@main
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
