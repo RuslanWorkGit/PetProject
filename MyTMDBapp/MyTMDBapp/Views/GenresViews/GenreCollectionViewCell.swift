@@ -9,10 +9,15 @@ import UIKit
 
 class GenreCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var movieNameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         
     }
+    
+    
 
 }

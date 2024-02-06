@@ -22,6 +22,10 @@
 		9B06F0AD2B723FE200B0117F /* GenresModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B06F0AC2B723FE200B0117F /* GenresModels.swift */; };
 		9BE4278F2B7249FF00410F46 /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE4278D2B7249FF00410F46 /* GenreCollectionViewCell.swift */; };
 		9BE427902B7249FF00410F46 /* GenreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BE4278E2B7249FF00410F46 /* GenreCollectionViewCell.xib */; };
+		9BE427932B72A6F600410F46 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 9BE427922B72A6F600410F46 /* Realm */; };
+		9BE427952B72A6F600410F46 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9BE427942B72A6F600410F46 /* RealmSwift */; };
+		9BE427972B72A72E00410F46 /* GenreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE427962B72A72E00410F46 /* GenreViewModel.swift */; };
+		9BE427992B72A7D200410F46 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE427982B72A7D200410F46 /* DataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +45,8 @@
 		9B06F0AC2B723FE200B0117F /* GenresModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresModels.swift; sourceTree = "<group>"; };
 		9BE4278D2B7249FF00410F46 /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		9BE4278E2B7249FF00410F46 /* GenreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreCollectionViewCell.xib; sourceTree = "<group>"; };
+		9BE427962B72A72E00410F46 /* GenreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewModel.swift; sourceTree = "<group>"; };
+		9BE427982B72A7D200410F46 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BE427952B72A6F600410F46 /* RealmSwift in Frameworks */,
+				9BE427932B72A6F600410F46 /* Realm in Frameworks */,
 				9B06F0A92B723D1700B0117F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +93,7 @@
 				9B06F08E2B72321A00B0117F /* Assets.xcassets */,
 				9B06F0902B72321A00B0117F /* LaunchScreen.storyboard */,
 				9B06F0932B72321A00B0117F /* Info.plist */,
+				9BE427982B72A7D200410F46 /* DataStore.swift */,
 			);
 			path = MyTMDBapp;
 			sourceTree = "<group>";
@@ -92,6 +101,7 @@
 		9B06F0992B72327A00B0117F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				9BE427962B72A72E00410F46 /* GenreViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -159,6 +169,8 @@
 			name = MyTMDBapp;
 			packageProductDependencies = (
 				9B06F0A82B723D1700B0117F /* Alamofire */,
+				9BE427922B72A6F600410F46 /* Realm */,
+				9BE427942B72A6F600410F46 /* RealmSwift */,
 			);
 			productName = MyTMDBapp;
 			productReference = 9B06F0822B72321900B0117F /* MyTMDBapp.app */;
@@ -190,6 +202,7 @@
 			mainGroup = 9B06F0792B72321900B0117F;
 			packageReferences = (
 				9B06F0A72B723D1700B0117F /* XCRemoteSwiftPackageReference "Alamofire" */,
+				9BE427912B72A6F600410F46 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 9B06F0832B72321900B0117F /* Products */;
 			projectDirPath = "";
@@ -222,7 +235,9 @@
 			files = (
 				9B06F0A02B7237AC00B0117F /* GenresViewController.swift in Sources */,
 				9B06F08A2B72321900B0117F /* ViewController.swift in Sources */,
+				9BE427972B72A72E00410F46 /* GenreViewModel.swift in Sources */,
 				9B06F0A32B7237EA00B0117F /* GenreTableViewCell.swift in Sources */,
+				9BE427992B72A7D200410F46 /* DataStore.swift in Sources */,
 				9B06F0862B72321900B0117F /* AppDelegate.swift in Sources */,
 				9B06F0AB2B723D3900B0117F /* Constants.swift in Sources */,
 				9B06F0AD2B723FE200B0117F /* GenresModels.swift in Sources */,
@@ -461,6 +476,14 @@
 				minimumVersion = 5.8.1;
 			};
 		};
+		9BE427912B72A6F600410F46 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -468,6 +491,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9B06F0A72B723D1700B0117F /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		9BE427922B72A6F600410F46 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BE427912B72A6F600410F46 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		9BE427942B72A6F600410F46 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BE427912B72A6F600410F46 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
