@@ -11,7 +11,7 @@ class MovieDataStore {
     static let shared = MovieDataStore()
     
     var arrayOfGenre: [Genre] = []
-    //var selectedMovies: [MovieByGenre] = []
+    var selectedMovies: [Movie] = []
     
     private init() {}
 }

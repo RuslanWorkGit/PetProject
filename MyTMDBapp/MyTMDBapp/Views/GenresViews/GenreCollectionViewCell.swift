@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class GenreCollectionViewCell: UICollectionViewCell {
 
@@ -18,6 +19,30 @@ class GenreCollectionViewCell: UICollectionViewCell {
         
     }
     
+    func configure(with movieByGenre: Movie) {
+        
+        let url = URL(string: (APIs.getImage.rawValue + movieByGenre.posterPath))
+        posterImageView.kf.setImage(with: url)
+        
+//        let url = URL(string: (APIs.getImage.rawValue + movieByGenre.posterPath))
+//        let processor = DownsamplingImageProcessor(size: posterImageView.bounds.size)
+//                     |> RoundCornerImageProcessor(cornerRadius: 20)
+//        posterImageView.kf.indicatorType = .activity
+//        posterImageView.kf.setImage(
+//            with: url,
+//        placeholder: UIImage(named: "placeHolderImage"),
+//        options: [
+//            .processor(processor),
+//            .scaleFactor(UIScreen.main.scale),
+//            .transition(.fade(1)),
+//            .cacheOriginalImage
+//        ])
+        
+        self.movieNameLabel.text = movieByGenre.title
+        
+    }
+    
     
 
 }
+

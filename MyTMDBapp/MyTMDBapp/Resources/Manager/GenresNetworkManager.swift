@@ -30,7 +30,7 @@ class GenresNetworkManager {
         }
     }
     
-    func getMovie(with genre: String, comletion: @escaping ([Movie]) -> Void) {
+    func getMovie(with genre: String, completion: @escaping ([Movie]) -> Void) {
         let url = APIs.getResultWithGenre.rawValue
         let apiKey = "?api_key=" + APIs.apiKey.rawValue
         let withGenre = "&with_genres=" + genre
@@ -38,11 +38,14 @@ class GenresNetworkManager {
         
         AF.request(url + apiKey + withGenre).responseDecodable(of: MoviesByGenre.self) { responce in
             switch responce.result {
-            case .success(let success):
-                
+            case .success(let movieInfo):
+                arrayOfMovie = movieInfo.results
             case .failure(let failure):
-                <#code#>
+                arrayOfMovie = []
+                print("Error: \(failure)")
             }
+            
+            completion(arrayOfMovie)
         }
         
     }

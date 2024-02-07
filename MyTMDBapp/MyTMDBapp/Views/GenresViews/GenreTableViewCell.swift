@@ -21,16 +21,27 @@ class GenreTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configure(genre: Genre) {
+        self.titleLabel.text = genre.name
+        GenresNetworkManager.shared.getMovie(with: String(genre.id)) { movies in
+            MovieDataStore.shared.selectedMovies = movies
+            self.genreCollectionView.reloadData()
+        }
+    }
  
 }
 
 extension GenreTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        MovieDataStore.shared.selectedMovies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        guard let cell = genreCollectionView.dequeueReusableCell(withReuseIdentifier: "GenreCollectionViewCell", for: indexPath) as? GenreCollectionViewCell else { return UICollectionViewCell() }
+        
+        cell.configure(with: MovieDataStore.shared.selectedMovies[indexPath.row])
+        return cell
     }
 }
 

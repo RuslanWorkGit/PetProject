@@ -34,8 +34,8 @@ extension GenresViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "GenreTableViewCell") as? GenreTableViewCell else { return UITableViewCell()}
-        cell.titleLabel.text = MovieDataStore.shared.arrayOfGenre[indexPath.row].name
-        cell.titleLabel.font = .boldSystemFont(ofSize: 15)
+        
+        cell.configure(genre: MovieDataStore.shared.arrayOfGenre[indexPath.row])
         cell.genreCollectionView.reloadData()
         return cell
     }
