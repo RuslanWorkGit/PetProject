@@ -8,7 +8,8 @@
 import UIKit
 
 class GenreTableViewCell: UITableViewCell {
-
+    
+    var navigationController: UINavigationController?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var genreCollectionView: UICollectionView! {
         didSet {
@@ -22,7 +23,8 @@ class GenreTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func configure(genre: Genre) {
+    func configure(genre: Genre, navigationController: UINavigationController) {
+        self.navigationController = navigationController
         self.titleLabel.text = genre.name
         GenresNetworkManager.shared.getMovie(with: String(genre.id)) { movies in
             MovieDataStore.shared.selectedMovies = movies
@@ -46,5 +48,11 @@ extension GenreTableViewCell: UICollectionViewDataSource {
 }
 
 extension GenreTableViewCell: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "MovieDetailsViewController") as? MovieDetailsViewController {
+            viewController.movieDetailsViewModel = MovieDataStore.shared.selectedMovies[indexPath.row]
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
 }

@@ -35,7 +35,7 @@ extension GenresViewController: UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "GenreTableViewCell") as? GenreTableViewCell else { return UITableViewCell()}
         
-        cell.configure(genre: MovieDataStore.shared.arrayOfGenre[indexPath.row])
+        cell.configure(genre: MovieDataStore.shared.arrayOfGenre[indexPath.row], navigationController: self.navigationController!)
         cell.genreCollectionView.reloadData()
         return cell
     }
