@@ -182,7 +182,7 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="favoriteButtonDidTap:" destination="SAZ-7g-b0g" eventType="touchUpInside" id="ezf-3Y-NyE"/>
+                                                    <action selector="favoriteButtonDidTap:" destination="SAZ-7g-b0g" eventType="touchUpInside" id="yvJ-TE-Oov"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -251,7 +251,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

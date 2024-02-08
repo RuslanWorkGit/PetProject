@@ -36,5 +36,13 @@ class MovieDetailsViewController: UIViewController {
     }
     
 
-
+    @IBAction func favoriteButtonDidTap(_ sender: UIButton) {
+        
+        sender.isSelected = !sender.isSelected
+        
+        let symbolName = sender.isSelected ? "star.fill" : "star"
+        let image = UIImage(systemName: symbolName)
+        sender.setImage(image, for: .normal)
+    }
+    
 }
