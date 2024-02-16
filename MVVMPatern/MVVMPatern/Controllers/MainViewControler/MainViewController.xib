@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="MVVMPatern" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="SaM-u0-sbO" id="EUH-Yc-RUi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,20 +19,20 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mG-TD-dWd">
-                    <rect key="frame" x="178" y="415.66666666666669" width="37" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SaM-u0-sbO">
+                    <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="3mG-TD-dWd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="KMA-13-tQq"/>
-                <constraint firstItem="3mG-TD-dWd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qZr-wf-U70"/>
+                <constraint firstAttribute="bottom" secondItem="SaM-u0-sbO" secondAttribute="bottom" id="G90-mS-PYw"/>
+                <constraint firstItem="SaM-u0-sbO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Onj-3D-NE8"/>
+                <constraint firstItem="SaM-u0-sbO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gwF-jS-N5c"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SaM-u0-sbO" secondAttribute="trailing" id="me5-qf-ghg"/>
             </constraints>
-            <point key="canvasLocation" x="117" y="20"/>
+            <point key="canvasLocation" x="116.79389312977099" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
