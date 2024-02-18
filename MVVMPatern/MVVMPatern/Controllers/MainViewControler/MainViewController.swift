@@ -28,6 +28,10 @@ class MainViewController: UIViewController {
         
         setupTableView()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        viewModel.getData()
+    }
 
 
 }
