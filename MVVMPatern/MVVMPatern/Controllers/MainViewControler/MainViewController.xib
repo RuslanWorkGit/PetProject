@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="MVVMPatern" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="zeL-Hc-sIA" id="4gX-yY-v8V"/>
                 <outlet property="tableView" destination="SaM-u0-sbO" id="EUH-Yc-RUi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,12 +24,18 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zeL-Hc-sIA">
+                    <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
+                    <color key="color" red="0.45517880150000001" green="0.45517880150000001" blue="0.45517880150000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="SaM-u0-sbO" secondAttribute="bottom" id="G90-mS-PYw"/>
                 <constraint firstItem="SaM-u0-sbO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Onj-3D-NE8"/>
+                <constraint firstItem="zeL-Hc-sIA" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Psd-u0-HK4"/>
+                <constraint firstItem="zeL-Hc-sIA" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="YdI-ct-hoF"/>
                 <constraint firstItem="SaM-u0-sbO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gwF-jS-N5c"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SaM-u0-sbO" secondAttribute="trailing" id="me5-qf-ghg"/>
             </constraints>
