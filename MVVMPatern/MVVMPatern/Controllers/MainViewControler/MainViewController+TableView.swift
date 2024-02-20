@@ -1,9 +1,7 @@
-//
 //  MainViewController+TableView.swift
 //  MVVMPatern
 //
 //  Created by Ruslan Liulka on 14.02.2024.
-//
 
 import Foundation
 import UIKit
@@ -39,7 +37,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = self.cellDataSource[indexPath.row].title  
+        cell.textLabel?.text = self.cellDataSource[indexPath.row].title
         return cell
         
     }
