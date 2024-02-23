@@ -45,4 +45,12 @@ class MainViewModel {
 //        self.cellDataSource.value = self.dataSource?.results ?? []
         self.cellDataSource.value = self.dataSource?.results.compactMap({MovieTableCellViewModel(movie: $0)})
     }
+    
+    func retriveMovie( with id: Int) -> Movie? {
+        guard let movie = dataSource?.results.first(where: { $0.id == id }) else {
+            return nil
+        }
+        
+        return movie
+    }
 }
