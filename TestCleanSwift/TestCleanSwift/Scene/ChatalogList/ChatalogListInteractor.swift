@@ -14,28 +14,28 @@ import UIKit
 
 protocol ChatalogListBusinessLogic
 {
-  func doSomething(request: ChatalogList.Something.Request)
+    func doChatalog(request: ChatalogList.Chatalog.Request)
 }
 
 protocol ChatalogListDataStore
 {
-  //var name: String { get set }
+    //var name: String { get set }
 }
 
 class ChatalogListInteractor: ChatalogListBusinessLogic, ChatalogListDataStore
 {
-  var presenter: ChatalogListPresentationLogic?
-  var worker: ChatalogListWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: ChatalogList.Something.Request)
-  {
-    worker = ChatalogListWorker()
-    worker?.doSomeWork()
+    var presenter: ChatalogListPresentationLogic?
+    var worker: ChatalogListWorker?
+    //var name: String = ""
     
-    let response = ChatalogList.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    // MARK: Do Chatalog
+    
+    func doChatalog(request: ChatalogList.Chatalog.Request)
+    {
+        worker = ChatalogListWorker()
+        let products = worker?.getSomeChatalog() ?? []
+        
+        let response = ChatalogList.Chatalog.Response(products: products)
+        presenter?.presentChatalog(response: response)
+    }
 }

@@ -14,18 +14,23 @@ import UIKit
 
 protocol ChatalogListPresentationLogic
 {
-  func presentSomething(response: ChatalogList.Something.Response)
+    func presentChatalog(response: ChatalogList.Chatalog.Response)
 }
 
 class ChatalogListPresenter: ChatalogListPresentationLogic
 {
-  weak var viewController: ChatalogListDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSomething(response: ChatalogList.Something.Response)
-  {
-    let viewModel = ChatalogList.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+    weak var viewController: ChatalogListDisplayLogic?
+    
+    // MARK: Do Chatalog
+    
+    func presentChatalog(response: ChatalogList.Chatalog.Response)
+    {
+        
+        let rows = response.products.map { product in
+            return ViewModelProduct(id: product.id, title: product.title, description: product.description, imageUrl: product.imageUrl)
+        }
+        
+        let viewModel = ChatalogList.Chatalog.ViewModel(productsViewModel: rows)
+        viewController?.displayChatalog(viewModel: viewModel)
+    }
 }

@@ -14,76 +14,98 @@ import UIKit
 
 protocol ChatalogListDisplayLogic: class
 {
-  func displaySomething(viewModel: ChatalogList.Something.ViewModel)
+    func displayChatalog(viewModel: ChatalogList.Chatalog.ViewModel)
 }
 
 class ChatalogListViewController: UIViewController, ChatalogListDisplayLogic
 {
-  var interactor: ChatalogListBusinessLogic?
-  var router: (NSObjectProtocol & ChatalogListRoutingLogic & ChatalogListDataPassing)?
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = ChatalogListInteractor()
-    let presenter = ChatalogListPresenter()
-    let router = ChatalogListRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    var interactor: ChatalogListBusinessLogic?
+    var router: (NSObjectProtocol & ChatalogListRoutingLogic & ChatalogListDataPassing)?
+    
+    private let tableView = UITableView()
+    private var products: [ViewModelProduct] = []
+    
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
     }
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    doSomething()
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = ChatalogList.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: ChatalogList.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    private func setupTableView() {
+        tableView.frame = view.bounds
+        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        view.addSubview(tableView)
+    }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = ChatalogListInteractor()
+        let presenter = ChatalogListPresenter()
+        let router = ChatalogListRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        setupTableView()
+        doChatalog()
+    }
+    
+    // MARK: Do Chatalog
+    
+    //@IBOutlet weak var nameTextField: UITextField!
+    
+    func doChatalog()
+    {
+        let request = ChatalogList.Chatalog.Request()
+        interactor?.doChatalog(request: request)
+    }
+    
+    func displayChatalog(viewModel: ChatalogList.Chatalog.ViewModel)
+    {
+        products = viewModel.productsViewModel
+        tableView.reloadData()
+    }
+}
+
+extension ChatalogListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(products.count)
+        return products.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        cell.textLabel?.text = products[indexPath.row].title
+        return cell
+    }
+    
+    
+}
+
+extension ChatalogListViewController: UITableViewDelegate {
+    
 }

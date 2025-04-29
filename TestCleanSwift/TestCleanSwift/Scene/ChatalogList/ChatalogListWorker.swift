@@ -14,7 +14,13 @@ import UIKit
 
 class ChatalogListWorker
 {
-  func doSomeWork()
-  {
-  }
+    func getSomeChatalog() -> [Product]{
+        return [
+            Product(id: 1, title: "Chair", description: "Good Chair", imageUrl: ""),
+            Product(id: 2, title: "Pants", description: "Good Pants", imageUrl: ""),
+            Product(id: 3, title: "Food", description: "Good Food", imageUrl: ""),
+            Product(id: 4, title: "Mock Shirt", description: "Comfortable cotton shirt", imageUrl: ""),
+            Product(id: 5, title: "Mock Shoes", description: "Stylish sneakers", imageUrl: "")
+        ]
+    }
 }

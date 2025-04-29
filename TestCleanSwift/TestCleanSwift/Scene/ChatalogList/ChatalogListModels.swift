@@ -12,20 +12,33 @@
 
 import UIKit
 
+struct Product {
+    let id: Int
+    let title: String
+    let description: String
+    let imageUrl: String
+}
+
+struct ViewModelProduct {
+    let id: Int
+    let title: String
+    let description: String
+    let imageUrl: String
+}
+
 enum ChatalogList
 {
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
+    // MARK: Use cases
+    
+    enum Chatalog
     {
+        struct Request {
+        }
+        struct Response {
+            let products: [Product]
+        }
+        struct ViewModel{
+            let productsViewModel: [ViewModelProduct]
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }
