@@ -1,5 +1,5 @@
 //
-//  ChatalogListWorker.swift
+//  CatalogListWorker.swift
 //  TestCleanSwift
 //
 //  Created by Ruslan Liulka on 29.04.2025.
@@ -12,9 +12,9 @@
 
 import UIKit
 
-class ChatalogListWorker
+class CatalogListWorker
 {
-    func getSomeChatalog() -> [Product]{
+    func getSomeCatalog() -> [Product]{
         return [
             Product(id: 1, title: "Chair", description: "Good Chair", imageUrl: ""),
             Product(id: 2, title: "Pants", description: "Good Pants", imageUrl: ""),

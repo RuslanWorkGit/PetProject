@@ -1,5 +1,5 @@
 //
-//  ChatalogListRouter.swift
+//  CatalogListRouter.swift
 //  TestCleanSwift
 //
 //  Created by Ruslan Liulka on 29.04.2025.
@@ -12,20 +12,20 @@
 
 import UIKit
 
-@objc protocol ChatalogListRoutingLogic
+@objc protocol CatalogListRoutingLogic
 {
   //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol ChatalogListDataPassing
+protocol CatalogListDataPassing
 {
-  var dataStore: ChatalogListDataStore? { get }
+  var dataStore: CatalogListDataStore? { get }
 }
 
-class ChatalogListRouter: NSObject, ChatalogListRoutingLogic, ChatalogListDataPassing
+class CatalogListRouter: NSObject, CatalogListRoutingLogic, CatalogListDataPassing
 {
-  weak var viewController: ChatalogListViewController?
-  var dataStore: ChatalogListDataStore?
+  weak var viewController: CatalogListViewController?
+  var dataStore: CatalogListDataStore?
   
   // MARK: Routing
   
@@ -46,14 +46,14 @@ class ChatalogListRouter: NSObject, ChatalogListRoutingLogic, ChatalogListDataPa
 
   // MARK: Navigation
   
-  //func navigateToSomewhere(source: ChatalogListViewController, destination: SomewhereViewController)
+  //func navigateToSomewhere(source: CatalogListViewController, destination: SomewhereViewController)
   //{
   //  source.show(destination, sender: nil)
   //}
   
   // MARK: Passing data
   
-  //func passDataToSomewhere(source: ChatalogListDataStore, destination: inout SomewhereDataStore)
+  //func passDataToSomewhere(source: CatalogListDataStore, destination: inout SomewhereDataStore)
   //{
   //  destination.name = source.name
   //}

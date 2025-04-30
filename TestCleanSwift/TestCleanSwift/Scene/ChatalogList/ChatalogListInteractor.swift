@@ -1,5 +1,5 @@
 //
-//  ChatalogListInteractor.swift
+//  CatalogListInteractor.swift
 //  TestCleanSwift
 //
 //  Created by Ruslan Liulka on 29.04.2025.
@@ -12,30 +12,30 @@
 
 import UIKit
 
-protocol ChatalogListBusinessLogic
+protocol CatalogListBusinessLogic
 {
-    func doChatalog(request: ChatalogList.Chatalog.Request)
+    func doCatalog(request: CatalogList.Catalog.Request)
 }
 
-protocol ChatalogListDataStore
+protocol CatalogListDataStore
 {
     //var name: String { get set }
 }
 
-class ChatalogListInteractor: ChatalogListBusinessLogic, ChatalogListDataStore
+class CatalogListInteractor: CatalogListBusinessLogic, CatalogListDataStore
 {
-    var presenter: ChatalogListPresentationLogic?
-    var worker: ChatalogListWorker?
+    var presenter: CatalogListPresentationLogic?
+    var worker: CatalogListWorker?
     //var name: String = ""
     
-    // MARK: Do Chatalog
+    // MARK: Do Catalog
     
-    func doChatalog(request: ChatalogList.Chatalog.Request)
+    func doCatalog(request: CatalogList.Catalog.Request)
     {
-        worker = ChatalogListWorker()
-        let products = worker?.getSomeChatalog() ?? []
+        worker = CatalogListWorker()
+        let products = worker?.getSomeCatalog() ?? []
         
-        let response = ChatalogList.Chatalog.Response(products: products)
-        presenter?.presentChatalog(response: response)
+        let response = CatalogList.Catalog.Response(products: products)
+        presenter?.presentCatalog(response: response)
     }
 }

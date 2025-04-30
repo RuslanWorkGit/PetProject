@@ -1,5 +1,5 @@
 //
-//  ChatalogListPresenter.swift
+//  CatalogListPresenter.swift
 //  TestCleanSwift
 //
 //  Created by Ruslan Liulka on 29.04.2025.
@@ -12,25 +12,25 @@
 
 import UIKit
 
-protocol ChatalogListPresentationLogic
+protocol CatalogListPresentationLogic
 {
-    func presentChatalog(response: ChatalogList.Chatalog.Response)
+    func presentCatalog(response: CatalogList.Catalog.Response)
 }
 
-class ChatalogListPresenter: ChatalogListPresentationLogic
+class CatalogListPresenter: CatalogListPresentationLogic
 {
-    weak var viewController: ChatalogListDisplayLogic?
+    weak var viewController: CatalogListDisplayLogic?
     
-    // MARK: Do Chatalog
+    // MARK: Do Catalog
     
-    func presentChatalog(response: ChatalogList.Chatalog.Response)
+    func presentCatalog(response: CatalogList.Catalog.Response)
     {
         
         let rows = response.products.map { product in
             return ViewModelProduct(id: product.id, title: product.title, description: product.description, imageUrl: product.imageUrl)
         }
         
-        let viewModel = ChatalogList.Chatalog.ViewModel(productsViewModel: rows)
-        viewController?.displayChatalog(viewModel: viewModel)
+        let viewModel = CatalogList.Catalog.ViewModel(productsViewModel: rows)
+        viewController?.displayCatalog(viewModel: viewModel)
     }
 }

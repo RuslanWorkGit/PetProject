@@ -1,5 +1,5 @@
 //
-//  ChatalogListModels.swift
+//  CatalogListModels.swift
 //  TestCleanSwift
 //
 //  Created by Ruslan Liulka on 29.04.2025.
@@ -26,11 +26,11 @@ struct ViewModelProduct {
     let imageUrl: String
 }
 
-enum ChatalogList
+enum CatalogList
 {
     // MARK: Use cases
     
-    enum Chatalog
+    enum Catalog
     {
         struct Request {
         }

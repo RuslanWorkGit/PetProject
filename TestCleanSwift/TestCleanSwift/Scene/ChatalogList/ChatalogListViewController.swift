@@ -1,5 +1,5 @@
 //
-//  ChatalogListViewController.swift
+//  CatalogListViewController.swift
 //  TestCleanSwift
 //
 //  Created by Ruslan Liulka on 29.04.2025.
@@ -12,15 +12,15 @@
 
 import UIKit
 
-protocol ChatalogListDisplayLogic: class
+protocol CatalogListDisplayLogic: class
 {
-    func displayChatalog(viewModel: ChatalogList.Chatalog.ViewModel)
+    func displayCatalog(viewModel: CatalogList.Catalog.ViewModel)
 }
 
-class ChatalogListViewController: UIViewController, ChatalogListDisplayLogic
+class CatalogListViewController: UIViewController, CatalogListDisplayLogic
 {
-    var interactor: ChatalogListBusinessLogic?
-    var router: (NSObjectProtocol & ChatalogListRoutingLogic & ChatalogListDataPassing)?
+    var interactor: CatalogListBusinessLogic?
+    var router: (NSObjectProtocol & CatalogListRoutingLogic & CatalogListDataPassing)?
     
     private let tableView = UITableView()
     private var products: [ViewModelProduct] = []
@@ -44,7 +44,7 @@ class ChatalogListViewController: UIViewController, ChatalogListDisplayLogic
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(CustomCell.self, forCellReuseIdentifier: "CustomCell")
         view.addSubview(tableView)
     }
     
@@ -53,9 +53,9 @@ class ChatalogListViewController: UIViewController, ChatalogListDisplayLogic
     private func setup()
     {
         let viewController = self
-        let interactor = ChatalogListInteractor()
-        let presenter = ChatalogListPresenter()
-        let router = ChatalogListRouter()
+        let interactor = CatalogListInteractor()
+        let presenter = CatalogListPresenter()
+        let router = CatalogListRouter()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
@@ -70,42 +70,42 @@ class ChatalogListViewController: UIViewController, ChatalogListDisplayLogic
     {
         super.viewDidLoad()
         setupTableView()
-        doChatalog()
+        doCatalog()
     }
     
-    // MARK: Do Chatalog
+    // MARK: Do Catalog
     
     //@IBOutlet weak var nameTextField: UITextField!
     
-    func doChatalog()
+    func doCatalog()
     {
-        let request = ChatalogList.Chatalog.Request()
-        interactor?.doChatalog(request: request)
+        let request = CatalogList.Catalog.Request()
+        interactor?.doCatalog(request: request)
     }
     
-    func displayChatalog(viewModel: ChatalogList.Chatalog.ViewModel)
+    func displayCatalog(viewModel: CatalogList.Catalog.ViewModel)
     {
         products = viewModel.productsViewModel
         tableView.reloadData()
     }
 }
 
-extension ChatalogListViewController: UITableViewDataSource {
+extension CatalogListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(products.count)
         return products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
         
-        cell.textLabel?.text = products[indexPath.row].title
+        cell.configure(with: products[indexPath.row])
         return cell
     }
     
     
 }
 
-extension ChatalogListViewController: UITableViewDelegate {
+extension CatalogListViewController: UITableViewDelegate {
     
 }
