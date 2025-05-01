@@ -85,7 +85,7 @@ class CatalogListViewController: UIViewController, CatalogListDisplayLogic
     
     func displayCatalog(viewModel: CatalogList.Catalog.ViewModel)
     {
-        products = viewModel.productsViewModel
+        products.append(contentsOf: viewModel.productsViewModel)
         tableView.reloadData()
     }
 }
@@ -98,8 +98,8 @@ extension CatalogListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
-        
         cell.configure(with: products[indexPath.row])
+        
         return cell
     }
     

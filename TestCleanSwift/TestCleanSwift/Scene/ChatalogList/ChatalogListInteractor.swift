@@ -36,6 +36,17 @@ class CatalogListInteractor: CatalogListBusinessLogic, CatalogListDataStore
         let products = worker?.getSomeCatalog() ?? []
         
         let response = CatalogList.Catalog.Response(products: products)
-        presenter?.presentCatalog(response: response)
+        self.presenter?.presentCatalog(response: response)
+        
+        //        worker?.fetchData { result in
+        //            switch result {
+        //            case .success(let success):
+        //                let response = CatalogList.Catalog.Response(products: success.results)
+        //                self.presenter?.presentCatalog(response: response)
+        //            case .failure(let failure):
+        //                print("FAILURE INTERACTOR")
+        //            }
+        //        }
+        
     }
 }

@@ -23,4 +23,12 @@ class CatalogListWorker
             Product(id: 5, title: "Mock Shoes", description: "Stylish sneakers", imageUrl: "")
         ]
     }
+    
+    func fetchData(completion: @escaping (Result<CharacterResponse, Error>) -> Void) {
+        
+        NetworkService.shared.fetchData { result in
+            print(result)
+            completion(result)
+        }
+    }
 }

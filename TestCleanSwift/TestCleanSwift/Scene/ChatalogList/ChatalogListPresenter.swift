@@ -29,6 +29,10 @@ class CatalogListPresenter: CatalogListPresentationLogic
         let rows = response.products.map { product in
             return ViewModelProduct(id: product.id, title: product.title, description: product.description, imageUrl: product.imageUrl)
         }
+
+//        let rows = response.products.map { character in
+//            return ViewModelProduct(id: character.id, title: character.name, description: character.gender, imageUrl: character.image)
+//        }
         
         let viewModel = CatalogList.Catalog.ViewModel(productsViewModel: rows)
         viewController?.displayCatalog(viewModel: viewModel)
