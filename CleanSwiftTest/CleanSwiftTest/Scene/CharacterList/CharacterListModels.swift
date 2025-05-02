@@ -12,20 +12,36 @@
 
 import UIKit
 
+//struct Character {
+//    let id: Int
+//    let name: String
+//    let gender: String
+//    let image: String
+//}
+//
+struct CharacterViewModel {
+    let id: Int
+    let name: String
+//    let gender: String
+//    let image: String
+}
+
 enum CharacterList
 {
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
+    // MARK: Use cases
+    
+    enum FetchCharacter
     {
+        struct Request
+        {
+        }
+        struct Response
+        {
+            let response: [CharacterStruct]
+        }
+        struct ViewModel
+        {
+            let viewModel: [CharacterViewModel]
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }

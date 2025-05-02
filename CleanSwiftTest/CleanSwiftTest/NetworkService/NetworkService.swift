@@ -7,6 +7,48 @@
 
 import Foundation
 
+struct CharacterResponse: Codable {
+    let info: Info
+    let results: [CharacterStruct]
+}
+
+struct Info: Codable {
+    let count: Int
+    let pages: Int
+}
+
+struct CharacterStruct: Codable {
+    let id: Int
+    let name: String
+}
+
 class NetworkService {
     
+    static let shared = NetworkService()
+    
+    func fetchCharacter(completion: @escaping (Result<CharacterResponse, Error>) -> Void) {
+        let urlString = "https://rickandmortyapi.com/api/character"
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("ERROR: \(error)")
+            }
+            
+            guard let responseData = data else { return }
+            
+            do {
+                let decoder = JSONDecoder()
+                let decodedData = try decoder.decode(CharacterResponse.self, from: responseData)
+                print(decodedData.info.count)
+                completion(.success(decodedData))
+            } catch {
+                completion(.failure(error))
+            }
+        }.resume()
+    }
 }
