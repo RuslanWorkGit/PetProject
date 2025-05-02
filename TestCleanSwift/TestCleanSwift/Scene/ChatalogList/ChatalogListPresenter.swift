@@ -14,7 +14,7 @@ import UIKit
 
 protocol CatalogListPresentationLogic
 {
-    func presentCatalog(response: CatalogList.Catalog.Response)
+    func presentCatalog(response: CharacterList.FetchCharacter.Response)
 }
 
 class CatalogListPresenter: CatalogListPresentationLogic
@@ -23,18 +23,18 @@ class CatalogListPresenter: CatalogListPresentationLogic
     
     // MARK: Do Catalog
     
-    func presentCatalog(response: CatalogList.Catalog.Response)
+    func presentCatalog(response: CharacterList.FetchCharacter.Response)
     {
         
-        let rows = response.products.map { product in
-            return ViewModelProduct(id: product.id, title: product.title, description: product.description, imageUrl: product.imageUrl)
+        let rows = response.characters.map { character in
+            return CharacterList.CharacterDisplay(id: character.id, name: character.name, status: character.status, species: character.species, gender: character.gender, imageURL: character.image)
         }
 
 //        let rows = response.products.map { character in
 //            return ViewModelProduct(id: character.id, title: character.name, description: character.gender, imageUrl: character.image)
 //        }
         
-        let viewModel = CatalogList.Catalog.ViewModel(productsViewModel: rows)
+        let viewModel = CharacterList.FetchCharacter.ViewModel(displayCharacter: rows)
         viewController?.displayCatalog(viewModel: viewModel)
     }
 }

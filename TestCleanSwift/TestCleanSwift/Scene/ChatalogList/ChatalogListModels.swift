@@ -12,33 +12,66 @@
 
 import UIKit
 
-struct Product {
-    let id: Int
-    let title: String
-    let description: String
-    let imageUrl: String
-}
+//struct Product {
+//    let id: Int
+//    let title: String
+//    let description: String
+//    let imageUrl: String
+//}
+//
+//struct ViewModelProduct {
+//    let id: Int
+//    let title: String
+//    let description: String
+//    let imageUrl: String
+//}
+//
+//enum CatalogList
+//{
+//    // MARK: Use cases
+//    
+//    enum Catalog
+//    {
+//        struct Request {
+//        }
+//        struct Response {
+//            let products: [Product]
+//        }
+//        struct ViewModel{
+//            let productsViewModel: [ViewModelProduct]
+//        }
+//    }
+//}
 
-struct ViewModelProduct {
-    let id: Int
-    let title: String
-    let description: String
-    let imageUrl: String
-}
 
-enum CatalogList
+enum CharacterList
 {
     // MARK: Use cases
+    //    struct Character {
+    //        let name: String
+    //    }
     
-    enum Catalog
-    {
+    struct CharacterDisplay {
+        let id: Int
+        let name: String
+        let status: String
+        let species: String
+        let gender: String
+        let imageURL: String
+    }
+    
+    
+    
+    enum FetchCharacter {
         struct Request {
+            var urlString: String?
         }
         struct Response {
-            let products: [Product]
+            let characters: [Character]
         }
-        struct ViewModel{
-            let productsViewModel: [ViewModelProduct]
+        struct ViewModel {
+            let displayCharacter: [CharacterDisplay]
         }
     }
 }
+

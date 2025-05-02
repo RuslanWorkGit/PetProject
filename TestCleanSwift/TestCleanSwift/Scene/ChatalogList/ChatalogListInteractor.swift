@@ -14,7 +14,7 @@ import UIKit
 
 protocol CatalogListBusinessLogic
 {
-    func doCatalog(request: CatalogList.Catalog.Request)
+    func doCatalog(request: CharacterList.FetchCharacter.Request)
 }
 
 protocol CatalogListDataStore
@@ -30,23 +30,23 @@ class CatalogListInteractor: CatalogListBusinessLogic, CatalogListDataStore
     
     // MARK: Do Catalog
     
-    func doCatalog(request: CatalogList.Catalog.Request)
+    func doCatalog(request: CharacterList.FetchCharacter.Request)
     {
         worker = CatalogListWorker()
-        let products = worker?.getSomeCatalog() ?? []
+        //        let products = worker?.getSomeCatalog() ?? []
+        //
+        //        let response = CatalogList.Catalog.Response(products: products)
+        //        self.presenter?.presentCatalog(response: response)
         
-        let response = CatalogList.Catalog.Response(products: products)
-        self.presenter?.presentCatalog(response: response)
-        
-        //        worker?.fetchData { result in
-        //            switch result {
-        //            case .success(let success):
-        //                let response = CatalogList.Catalog.Response(products: success.results)
-        //                self.presenter?.presentCatalog(response: response)
-        //            case .failure(let failure):
-        //                print("FAILURE INTERACTOR")
-        //            }
-        //        }
+        worker?.fetchData { result in
+            switch result {
+            case .success(let success):
+                let response = CharacterList.FetchCharacter.Response(characters: success.results)
+                self.presenter?.presentCatalog(response: response)
+            case .failure(let failure):
+                print("FAILURE INTERACTOR")
+            }
+        }
         
     }
 }

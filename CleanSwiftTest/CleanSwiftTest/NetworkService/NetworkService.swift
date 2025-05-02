@@ -1,0 +1,12 @@
+//
+//  NetworkService.swift
+//  CleanSwiftTest
+//
+//  Created by Ruslan Liulka on 02.05.2025.
+//
+
+import Foundation
+
+class NetworkService {
+    
+}

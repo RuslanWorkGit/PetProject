@@ -14,7 +14,7 @@ import UIKit
 
 protocol CatalogListDisplayLogic: class
 {
-    func displayCatalog(viewModel: CatalogList.Catalog.ViewModel)
+    func displayCatalog(viewModel: CharacterList.FetchCharacter.ViewModel)
 }
 
 class CatalogListViewController: UIViewController, CatalogListDisplayLogic
@@ -23,7 +23,7 @@ class CatalogListViewController: UIViewController, CatalogListDisplayLogic
     var router: (NSObjectProtocol & CatalogListRoutingLogic & CatalogListDataPassing)?
     
     private let tableView = UITableView()
-    private var products: [ViewModelProduct] = []
+    private var products: [CharacterList.CharacterDisplay] = []
     
     // MARK: Object lifecycle
     
@@ -79,13 +79,13 @@ class CatalogListViewController: UIViewController, CatalogListDisplayLogic
     
     func doCatalog()
     {
-        let request = CatalogList.Catalog.Request()
+        let request = CharacterList.FetchCharacter.Request()
         interactor?.doCatalog(request: request)
     }
     
-    func displayCatalog(viewModel: CatalogList.Catalog.ViewModel)
+    func displayCatalog(viewModel: CharacterList.FetchCharacter.ViewModel)
     {
-        products.append(contentsOf: viewModel.productsViewModel)
+        products.append(contentsOf: viewModel.displayCharacter)
         tableView.reloadData()
     }
 }
