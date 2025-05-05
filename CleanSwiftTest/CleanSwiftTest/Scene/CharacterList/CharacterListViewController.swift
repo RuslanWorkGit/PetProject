@@ -44,7 +44,7 @@ class CharacterListViewController: UIViewController, CharacterListDisplayLogic
         tableView.frame = view.bounds
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(CustomCell.self, forCellReuseIdentifier: "CustomCell")
         
         view.addSubview(tableView)
         
@@ -99,8 +99,10 @@ extension CharacterListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = characters[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell") as! CustomCell
+        //cell.textLabel?.text = characters[indexPath.row].name
+        
+        cell.configure(with: characters[indexPath.row])
         return cell
     }
     
