@@ -31,7 +31,29 @@ class CustomCell: UITableViewCell {
     func configure(with character: CharacterViewModel) {
         characterName.text = character.name
         
-        //if let url = URL(string: character.)
+        if let url = URL(string: character.image) {
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            
+            URLSession.shared.dataTask(with: request) { data, _, error in
+                if let error = error {
+                    print("ERROR: \(error)")
+                }
+                
+                guard let responseData = data else { return }
+                
+                do {
+                    print("IMAGE")
+                    let image = UIImage(data: responseData)
+                    DispatchQueue.main.async {
+                        self.characterImage.image = image
+                    }
+                    
+                } catch {
+                    print(error)
+                }
+            }.resume()
+        }
     }
     
     private func setupImage() {

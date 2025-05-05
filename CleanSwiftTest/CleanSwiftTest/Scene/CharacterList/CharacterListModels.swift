@@ -23,7 +23,7 @@ struct CharacterViewModel {
     let id: Int
     let name: String
 //    let gender: String
-//    let image: String
+    let image: String
 }
 
 enum CharacterList

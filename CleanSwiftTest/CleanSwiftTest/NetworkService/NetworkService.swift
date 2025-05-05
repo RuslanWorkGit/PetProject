@@ -20,6 +20,7 @@ struct Info: Codable {
 struct CharacterStruct: Codable {
     let id: Int
     let name: String
+    let image: String
 }
 
 class NetworkService {
