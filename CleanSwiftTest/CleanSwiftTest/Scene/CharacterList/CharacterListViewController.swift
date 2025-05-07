@@ -113,4 +113,10 @@ extension CharacterListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCharacter = characters[indexPath.row]
+        router?.dataStore?.characterId = selectedCharacter.id
+        router?.routeToDetailsCharacter()
+    }
 }

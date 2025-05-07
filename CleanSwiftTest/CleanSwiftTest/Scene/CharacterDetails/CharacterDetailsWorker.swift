@@ -14,7 +14,9 @@ import UIKit
 
 class CharacterDetailsWorker
 {
-  func doSomeWork()
-  {
-  }
+    func fetchDetailsById(_ id: Int, completion: @escaping (Result<CharacterStructDetails, Error>) -> Void) {
+        NetworkService.shared.fetchCharacter(type: CharacterStructDetails.self, id: id) { result in
+            completion(result)
+        }
+    }
 }

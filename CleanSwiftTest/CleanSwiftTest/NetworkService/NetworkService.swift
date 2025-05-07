@@ -27,8 +27,13 @@ class NetworkService {
     
     static let shared = NetworkService()
     
-    func fetchCharacter(completion: @escaping (Result<CharacterResponse, Error>) -> Void) {
-        let urlString = "https://rickandmortyapi.com/api/character"
+    func fetchCharacter<T: Codable>(type: T.Type, id: Int? = nil, completion: @escaping (Result<T, Error>) -> Void) {
+        var urlString = "https://rickandmortyapi.com/api/character"
+        
+        if let id = id {
+            urlString += "/\(id)"
+            print(urlString)
+        }
         
         guard let url = URL(string: urlString) else { return }
         
@@ -44,8 +49,7 @@ class NetworkService {
             
             do {
                 let decoder = JSONDecoder()
-                let decodedData = try decoder.decode(CharacterResponse.self, from: responseData)
-                print(decodedData.info.count)
+                let decodedData = try decoder.decode(T.self, from: responseData)
                 completion(.success(decodedData))
             } catch {
                 completion(.failure(error))

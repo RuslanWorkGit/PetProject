@@ -12,20 +12,33 @@
 
 import UIKit
 
+struct CharacterStructDetails: Codable {
+    let name: String
+    let gender: String
+}
+
+struct CharacterDetailsViewModel: Codable {
+   // let id: Int
+    let name: String
+    let gender: String
+}
+
 enum CharacterDetails
 {
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
+    // MARK: Use cases
+    
+    enum Character
     {
+        struct Request
+        {
+        }
+        struct Response
+        {
+            let response: CharacterStructDetails
+        }
+        struct ViewModel
+        {
+            let viewModel: CharacterDetailsViewModel
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }

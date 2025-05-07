@@ -14,22 +14,16 @@ import UIKit
 
 class CharacterListWorker
 {
-//    func getMockCharacter() -> [Character]
-//    {
-//        return [
-//            Character(id: 1, name: "One", gender: "None", image: ""),
-//            Character(id: 2, name: "Two", gender: "None", image: ""),
-//            Character(id: 3, name: "Three", gender: "None", image: ""),
-//            Character(id: 4, name: "Four", gender: "None", image: ""),
-//            Character(id: 5, name: "Five", gender: "None", image: ""),
-//            Character(id: 6, name: "Six", gender: "None", image: "")
-//        ]
-//        
-//    }
     
     func fetchCharacter(completion: @escaping (Result<CharacterResponse, Error>) -> Void) {
-        NetworkService.shared.fetchCharacter { result in
+        
+//        NetworkService.shared.fetchCharacter(type: CharacterResponse.self) {(result : Result<CharacterResponse, Error>) in
+//            completion(result)
+//        }
+        
+        NetworkService.shared.fetchCharacter(type: CharacterResponse.self) {result in
             completion(result)
         }
+
     }
  }

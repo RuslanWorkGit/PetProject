@@ -12,13 +12,7 @@
 
 import UIKit
 
-//struct Character {
-//    let id: Int
-//    let name: String
-//    let gender: String
-//    let image: String
-//}
-//
+
 struct CharacterViewModel {
     let id: Int
     let name: String
