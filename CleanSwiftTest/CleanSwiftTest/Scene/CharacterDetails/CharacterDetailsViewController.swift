@@ -29,8 +29,10 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
     private let speciesLabel = UILabel()
     private let originLabel = UILabel()
     private let originButton = UIButton()
-    private let showTableView: Bool = false
+    
+    private var showTableView: Bool = false
     private let tableView = UITableView()
+    private var residance: [String] = []
     
     // MARK: Object lifecycle
     
@@ -51,9 +53,15 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
     private func setupTableView() {
         
         view.addSubview(tableView)
+        tableView.isHidden = true
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(originButton.snp.bottom).offset(12)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(CustomCell.self, forCellReuseIdentifier: "CustomCell")
     }
     
     private func setupUI() {
@@ -144,6 +152,7 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
         super.viewDidLoad()
         view.backgroundColor = .white
         setupUI()
+        setupTableView()
         doSomething()
     }
     
@@ -182,15 +191,54 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
                     }
                 }.resume()
             }
+            
+            if let residanceUrl = URL(string: viewModel.viewModel.originUrl) {
+                var request = URLRequest(url: residanceUrl)
+                request.httpMethod = "GET"
+                
+                URLSession.shared.dataTask(with: request) { data, _, error in
+                    if let error = error {
+                        print(error)
+                    }
+                    
+                    guard let responseData = data else { return }
+                    
+                    do {
+                        let decodedData = try JSONDecoder().decode(ResidanceStruct.self, from: responseData)
+                        
+                        DispatchQueue.main.async {
+                            self.residance = decodedData.residents
+                        }
+                        
+                        
+                    } catch {
+                        print(error)
+                    }
+                    
+                }.resume()
+            }
         }
     }
+
     
     @objc func showResidanceAction() {
-        print("Shwo residence")
+        showTableView.toggle()
+        tableView.isHidden = !showTableView
+        tableView.reloadData()
     }
 }
 
 extension CharacterDetailsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        residance.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell") as! CustomCell
+        cell.characterName.text = residance[indexPath.row]
+        return cell
+    }
+    
     
 }
 

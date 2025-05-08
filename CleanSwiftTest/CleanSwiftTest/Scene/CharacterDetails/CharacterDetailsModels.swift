@@ -12,6 +12,12 @@
 
 import UIKit
 
+struct ResidanceStruct: Codable {
+    let id: Int
+    let name: String
+    let residents: [String]
+}
+
 struct CharacterStructDetails: Codable {
     let id: Int
     let name: String
