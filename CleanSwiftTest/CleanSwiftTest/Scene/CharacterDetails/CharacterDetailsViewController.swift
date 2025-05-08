@@ -28,6 +28,9 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
     private let genderLabel = UILabel()
     private let speciesLabel = UILabel()
     private let originLabel = UILabel()
+    private let originButton = UIButton()
+    private let showTableView: Bool = false
+    private let tableView = UITableView()
     
     // MARK: Object lifecycle
     
@@ -45,6 +48,14 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
     
     // MARK: Setup
     
+    private func setupTableView() {
+        
+        view.addSubview(tableView)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
     private func setupUI() {
         
         view.addSubview(nameLable)
@@ -52,6 +63,7 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
         view.addSubview(genderLabel)
         view.addSubview(speciesLabel)
         view.addSubview(originLabel)
+        view.addSubview(originButton)
         
         nameLable.numberOfLines = 0
         nameLable.contentMode = .center
@@ -84,10 +96,29 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
             make.width.equalTo(view.bounds.width / 2 - 8)
         }
         
+        originLabel.numberOfLines = 0
         originLabel.translatesAutoresizingMaskIntoConstraints = false
         originLabel.snp.makeConstraints { make in
             make.top.equalTo(genderLabel.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview().inset(8)
+            make.leading.equalToSuperview().offset(8)
+            make.width.equalTo(view.bounds.width / 2 - 16)
+        }
+        
+        
+        originButton.setTitle("Show residence", for: .normal)
+        originButton.setTitleColor(.black, for: .normal)
+        originButton.layer.cornerRadius = 10
+        originButton.clipsToBounds = true
+        originButton.layer.borderWidth = 1
+        originButton.layer.borderColor = UIColor.systemGray.cgColor
+        
+        originButton.addTarget(self, action: #selector(showResidanceAction), for: .touchUpInside)
+        
+        originButton.translatesAutoresizingMaskIntoConstraints = false
+        originButton.snp.makeConstraints { make in
+            make.top.equalTo(speciesLabel.snp.bottom).offset(8)
+            make.trailing.equalToSuperview().inset(8)
+            make.leading.equalTo(originLabel.snp.trailing).offset(8)
         }
         
     }
@@ -153,4 +184,17 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
             }
         }
     }
+    
+    @objc func showResidanceAction() {
+        print("Shwo residence")
+    }
+}
+
+extension CharacterDetailsViewController: UITableViewDataSource {
+    
+}
+
+
+extension CharacterDetailsViewController: UITableViewDelegate {
+    
 }
