@@ -26,7 +26,7 @@ class CharacterDetailsPresenter: CharacterDetailsPresentationLogic
     func presentSomething(response: CharacterDetails.Character.Response)
     {
         
-        let details = CharacterDetailsViewModel(id: response.response.id, name: response.response.name, gender: response.response.gender, image: response.response.image, species: response.response.species)
+        let details = CharacterDetailsViewModel(id: response.response.id, name: response.response.name, gender: response.response.gender, image: response.response.image, species: response.response.species, originName: response.response.origin.name, originUrl: response.response.origin.url)
         
         let viewModel = CharacterDetails.Character.ViewModel(viewModel: details)
         viewController?.displaySomething(viewModel: viewModel)

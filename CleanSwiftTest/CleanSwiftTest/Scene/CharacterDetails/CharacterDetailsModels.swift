@@ -18,14 +18,21 @@ struct CharacterStructDetails: Codable {
     let gender: String
     let image: String
     let species: String
+    let origin: Origin
 }
 
+struct Origin: Codable {
+    let name: String
+    let url: String
+}
 struct CharacterDetailsViewModel: Codable {
     let id: Int
     let name: String
     let gender: String
     let image: String
     let species: String
+    let originName: String
+    let originUrl: String
 }
 
 enum CharacterDetails

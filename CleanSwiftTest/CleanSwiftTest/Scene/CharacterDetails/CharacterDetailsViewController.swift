@@ -25,6 +25,9 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
     
     private var nameLable = UILabel()
     private let imageView = UIImageView()
+    private let genderLabel = UILabel()
+    private let speciesLabel = UILabel()
+    private let originLabel = UILabel()
     
     // MARK: Object lifecycle
     
@@ -46,6 +49,9 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
         
         view.addSubview(nameLable)
         view.addSubview(imageView)
+        view.addSubview(genderLabel)
+        view.addSubview(speciesLabel)
+        view.addSubview(originLabel)
         
         nameLable.numberOfLines = 0
         nameLable.contentMode = .center
@@ -62,6 +68,26 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
             make.top.equalTo(nameLable.snp.bottom).offset(16)
             make.centerX.equalToSuperview()
             make.leading.trailing.equalToSuperview()
+        }
+        
+        genderLabel.translatesAutoresizingMaskIntoConstraints = false
+        genderLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(8)
+            make.width.equalTo(view.bounds.width / 2 - 8)
+        }
+        
+        speciesLabel.translatesAutoresizingMaskIntoConstraints = false
+        speciesLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(16)
+            make.trailing.equalToSuperview().inset(8)
+            make.width.equalTo(view.bounds.width / 2 - 8)
+        }
+        
+        originLabel.translatesAutoresizingMaskIntoConstraints = false
+        originLabel.snp.makeConstraints { make in
+            make.top.equalTo(genderLabel.snp.bottom).offset(16)
+            make.leading.trailing.equalToSuperview().inset(8)
         }
         
     }
@@ -98,10 +124,12 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
         interactor?.doSomething(request: request)
     }
     
-    func displaySomething(viewModel: CharacterDetails.Character.ViewModel)
-    {
+    func displaySomething(viewModel: CharacterDetails.Character.ViewModel) {
         DispatchQueue.main.async {
             self.nameLable.text = viewModel.viewModel.name
+            self.genderLabel.text = "Gender: \(viewModel.viewModel.gender)"
+            self.speciesLabel.text = "Speciest: \(viewModel.viewModel.species)"
+            self.originLabel.text = "Origin name: \(viewModel.viewModel.originName)"
             
             if let urlImage = URL(string: viewModel.viewModel.image) {
                 var request = URLRequest(url: urlImage)
@@ -115,7 +143,9 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
                     guard let responseData = data else { return }
                     
                     do {
-                        self.imageView.image = UIImage(data: responseData)
+                        DispatchQueue.main.async {
+                            self.imageView.image = UIImage(data: responseData)
+                        }
                     } catch {
                         print(error)
                     }
