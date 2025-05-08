@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol CharacterDetailsDisplayLogic: class
 {
@@ -23,6 +24,7 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
     var router: (NSObjectProtocol & CharacterDetailsRoutingLogic & CharacterDetailsDataPassing)?
     
     private var nameLable = UILabel()
+    private let imageView = UIImageView()
     
     // MARK: Object lifecycle
     
@@ -43,6 +45,7 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
     private func setupUI() {
         
         view.addSubview(nameLable)
+        view.addSubview(imageView)
         
         nameLable.numberOfLines = 0
         nameLable.contentMode = .center
@@ -53,6 +56,13 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
             nameLable.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
             nameLable.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12)
         ])
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(nameLable.snp.bottom).offset(16)
+            make.centerX.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+        }
         
     }
     
@@ -82,8 +92,6 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
     
     // MARK: Do something
     
-    //@IBOutlet weak var nameTextField: UITextField!
-    
     func doSomething()
     {
         let request = CharacterDetails.Character.Request()
@@ -92,7 +100,27 @@ class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayL
     
     func displaySomething(viewModel: CharacterDetails.Character.ViewModel)
     {
-        nameLable.text = viewModel.viewModel.name
-
+        DispatchQueue.main.async {
+            self.nameLable.text = viewModel.viewModel.name
+            
+            if let urlImage = URL(string: viewModel.viewModel.image) {
+                var request = URLRequest(url: urlImage)
+                request.httpMethod = "GET"
+                
+                URLSession.shared.dataTask(with: request) { data, _, error in
+                    if let error = error {
+                        print(error)
+                    }
+                    
+                    guard let responseData = data else { return }
+                    
+                    do {
+                        self.imageView.image = UIImage(data: responseData)
+                    } catch {
+                        print(error)
+                    }
+                }.resume()
+            }
+        }
     }
 }

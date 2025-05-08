@@ -44,8 +44,9 @@ class CustomCell: UITableViewCell {
                 
                 do {
                     print("IMAGE")
-                    let image = UIImage(data: responseData)
+                    
                     DispatchQueue.main.async {
+                        let image = UIImage(data: responseData)
                         self.characterImage.image = image
                     }
                     
