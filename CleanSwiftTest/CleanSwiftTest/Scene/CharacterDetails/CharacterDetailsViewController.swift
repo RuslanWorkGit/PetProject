@@ -11,79 +11,238 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol CharacterDetailsDisplayLogic: class
 {
-  func displaySomething(viewModel: CharacterDetails.Something.ViewModel)
+    func displaySomething(viewModel: CharacterDetails.Character.ViewModel)
 }
 
 class CharacterDetailsViewController: UIViewController, CharacterDetailsDisplayLogic
 {
-  var interactor: CharacterDetailsBusinessLogic?
-  var router: (NSObjectProtocol & CharacterDetailsRoutingLogic & CharacterDetailsDataPassing)?
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = CharacterDetailsInteractor()
-    let presenter = CharacterDetailsPresenter()
-    let router = CharacterDetailsRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    var interactor: CharacterDetailsBusinessLogic?
+    var router: (NSObjectProtocol & CharacterDetailsRoutingLogic & CharacterDetailsDataPassing)?
+    
+    private var nameLable = UILabel()
+    private let imageView = UIImageView()
+    private let genderLabel = UILabel()
+    private let speciesLabel = UILabel()
+    private let originLabel = UILabel()
+    private let originButton = UIButton()
+    
+    private var showTableView: Bool = false
+    private let tableView = UITableView()
+    private var residance: [String] = []
+    
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
     }
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    doSomething()
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = CharacterDetails.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: CharacterDetails.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setupTableView() {
+        
+        view.addSubview(tableView)
+        tableView.isHidden = true
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(originButton.snp.bottom).offset(12)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(CustomCell.self, forCellReuseIdentifier: "CustomCell")
+    }
+    
+    private func setupUI() {
+        
+        view.addSubview(nameLable)
+        view.addSubview(imageView)
+        view.addSubview(genderLabel)
+        view.addSubview(speciesLabel)
+        view.addSubview(originLabel)
+        view.addSubview(originButton)
+        
+        nameLable.numberOfLines = 0
+        nameLable.contentMode = .center
+        
+        nameLable.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            nameLable.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            nameLable.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
+            nameLable.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12)
+        ])
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(nameLable.snp.bottom).offset(16)
+            make.centerX.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        genderLabel.translatesAutoresizingMaskIntoConstraints = false
+        genderLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(8)
+            make.width.equalTo(view.bounds.width / 2 - 8)
+        }
+        
+        speciesLabel.translatesAutoresizingMaskIntoConstraints = false
+        speciesLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(16)
+            make.trailing.equalToSuperview().inset(8)
+            make.width.equalTo(view.bounds.width / 2 - 8)
+        }
+        
+        originLabel.numberOfLines = 0
+        originLabel.translatesAutoresizingMaskIntoConstraints = false
+        originLabel.snp.makeConstraints { make in
+            make.top.equalTo(genderLabel.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(8)
+            make.width.equalTo(view.bounds.width / 2 - 16)
+        }
+        
+        
+        originButton.setTitle("Show residence", for: .normal)
+        originButton.setTitleColor(.black, for: .normal)
+        originButton.layer.cornerRadius = 10
+        originButton.clipsToBounds = true
+        originButton.layer.borderWidth = 1
+        originButton.layer.borderColor = UIColor.systemGray.cgColor
+        
+        originButton.addTarget(self, action: #selector(showResidanceAction), for: .touchUpInside)
+        
+        originButton.translatesAutoresizingMaskIntoConstraints = false
+        originButton.snp.makeConstraints { make in
+            make.top.equalTo(speciesLabel.snp.bottom).offset(8)
+            make.trailing.equalToSuperview().inset(8)
+            make.leading.equalTo(originLabel.snp.trailing).offset(8)
+        }
+        
+    }
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = CharacterDetailsInteractor()
+        let presenter = CharacterDetailsPresenter()
+        let router = CharacterDetailsRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        setupUI()
+        setupTableView()
+        doSomething()
+    }
+    
+    // MARK: Do something
+    
+    func doSomething()
+    {
+        let request = CharacterDetails.Character.Request()
+        interactor?.doSomething(request: request)
+    }
+    
+    func displaySomething(viewModel: CharacterDetails.Character.ViewModel) {
+        DispatchQueue.main.async {
+            self.nameLable.text = viewModel.viewModel.name
+            self.genderLabel.text = "Gender: \(viewModel.viewModel.gender)"
+            self.speciesLabel.text = "Speciest: \(viewModel.viewModel.species)"
+            self.originLabel.text = "Origin name: \(viewModel.viewModel.originName)"
+            
+            if let urlImage = URL(string: viewModel.viewModel.image) {
+                var request = URLRequest(url: urlImage)
+                request.httpMethod = "GET"
+                
+                URLSession.shared.dataTask(with: request) { data, _, error in
+                    if let error = error {
+                        print(error)
+                    }
+                    
+                    guard let responseData = data else { return }
+                    
+                    do {
+                        DispatchQueue.main.async {
+                            self.imageView.image = UIImage(data: responseData)
+                        }
+                    } catch {
+                        print(error)
+                    }
+                }.resume()
+            }
+            
+            if let residanceUrl = URL(string: viewModel.viewModel.originUrl) {
+                var request = URLRequest(url: residanceUrl)
+                request.httpMethod = "GET"
+                
+                URLSession.shared.dataTask(with: request) { data, _, error in
+                    if let error = error {
+                        print(error)
+                    }
+                    
+                    guard let responseData = data else { return }
+                    
+                    do {
+                        let decodedData = try JSONDecoder().decode(ResidanceStruct.self, from: responseData)
+                        
+                        DispatchQueue.main.async {
+                            self.residance = decodedData.residents
+                        }
+                        
+                        
+                    } catch {
+                        print(error)
+                    }
+                    
+                }.resume()
+            }
+        }
+    }
+
+    
+    @objc func showResidanceAction() {
+        showTableView.toggle()
+        tableView.isHidden = !showTableView
+        tableView.reloadData()
+    }
+}
+
+extension CharacterDetailsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        residance.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell") as! CustomCell
+        cell.characterName.text = residance[indexPath.row]
+        return cell
+    }
+    
+    
+}
+
+
+extension CharacterDetailsViewController: UITableViewDelegate {
+    
 }

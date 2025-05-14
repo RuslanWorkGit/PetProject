@@ -12,20 +12,51 @@
 
 import UIKit
 
+struct ResidanceStruct: Codable {
+    let id: Int
+    let name: String
+    let residents: [String]
+}
+
+struct CharacterStructDetails: Codable {
+    let id: Int
+    let name: String
+    let gender: String
+    let image: String
+    let species: String
+    let origin: Origin
+}
+
+struct Origin: Codable {
+    let name: String
+    let url: String
+}
+struct CharacterDetailsViewModel: Codable {
+    let id: Int
+    let name: String
+    let gender: String
+    let image: String
+    let species: String
+    let originName: String
+    let originUrl: String
+}
+
 enum CharacterDetails
 {
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
+    // MARK: Use cases
+    
+    enum Character
     {
+        struct Request
+        {
+        }
+        struct Response
+        {
+            let response: CharacterStructDetails
+        }
+        struct ViewModel
+        {
+            let viewModel: CharacterDetailsViewModel
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }

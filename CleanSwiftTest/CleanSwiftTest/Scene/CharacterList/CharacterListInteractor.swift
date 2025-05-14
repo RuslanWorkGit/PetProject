@@ -19,33 +19,31 @@ protocol CharacterListBusinessLogic
 
 protocol CharacterListDataStore
 {
-    //var name: String { get set }
+    var characterId: Int? { get set }
 }
 
 class CharacterListInteractor: CharacterListBusinessLogic, CharacterListDataStore
 {
+    var characterId: Int?
+    
     var presenter: CharacterListPresentationLogic?
     var worker: CharacterListWorker?
-    //var name: String = ""
     
     // MARK: Do something
     
     func doSomething(request: CharacterList.FetchCharacter.Request)
     {
         worker = CharacterListWorker()
-//        let characters = worker?.getMockCharacter() ?? []
         
         worker?.fetchCharacter { result in
             switch result {
             case .success(let success):
+                
                 let response = CharacterList.FetchCharacter.Response(response: success.results)
                 self.presenter?.presentSomething(response: response)
             case .failure(let failure):
                 print("Failure Interactor \(failure)")
             }
         }
-        
-//        let response = CharacterList.FetchCharacter.Response(response: characters)
-//        presenter?.presentSomething(response: response)
     }
 }
