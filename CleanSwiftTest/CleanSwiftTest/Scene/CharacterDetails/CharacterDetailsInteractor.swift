@@ -14,28 +14,40 @@ import UIKit
 
 protocol CharacterDetailsBusinessLogic
 {
-  func doSomething(request: CharacterDetails.Something.Request)
+    func doSomething(request: CharacterDetails.Character.Request)
 }
 
 protocol CharacterDetailsDataStore
 {
-  //var name: String { get set }
+    var characterId: Int? { get set }
 }
 
 class CharacterDetailsInteractor: CharacterDetailsBusinessLogic, CharacterDetailsDataStore
 {
-  var presenter: CharacterDetailsPresentationLogic?
-  var worker: CharacterDetailsWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: CharacterDetails.Something.Request)
-  {
-    worker = CharacterDetailsWorker()
-    worker?.doSomeWork()
+    var characterId: Int?
     
-    let response = CharacterDetails.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    var presenter: CharacterDetailsPresentationLogic?
+    var worker: CharacterDetailsWorker?
+    //var name: String = ""
+    
+    // MARK: Do something
+    
+    func doSomething(request: CharacterDetails.Character.Request)
+    {
+        worker = CharacterDetailsWorker()
+        
+        print(characterId)
+        guard let id = characterId else { return }
+        print(id)
+        worker?.fetchDetailsById(id) { result in
+            switch result {
+            case .success(let success):
+                let response = CharacterDetails.Character.Response(response: success)
+                self.presenter?.presentSomething(response: response)
+            case .failure(let failure):
+                print("INTERACTOR ERROR: \(failure)")
+            }
+        }
+
+    }
 }
