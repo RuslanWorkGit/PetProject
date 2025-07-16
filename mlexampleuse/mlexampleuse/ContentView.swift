@@ -6,19 +6,46 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct ContentView: View {
+    
+    @StateObject private var viewModel = CameraViewModel()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text(viewModel.classificationLabel)
+                .font(.title)
+                .padding()
+            
+            CameraPreview(session: viewModel.captureSession)
+                .onAppear {
+                    viewModel.captureSession.startRunning()
+                }
+                .onDisappear {
+                    viewModel.captureSession.stopRunning()
+                }
+                
         }
         .padding()
     }
 }
 
-#Preview {
-    ContentView()
+
+struct CameraPreview: UIViewRepresentable {
+    
+    let session: AVCaptureSession
+    
+    func makeUIView(context: Context) -> some UIView {
+        let view = UIView()
+        let previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        previewLayer.videoGravity = .resizeAspectFill
+        previewLayer.frame = UIScreen.main.bounds
+        view.layer.addSublayer(previewLayer)
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIViewType, context: Context) {
+        
+    }
 }
